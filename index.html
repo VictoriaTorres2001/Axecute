@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Axecute</title>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <script src="./script.js"></script>
+    </head>
+    <body>
+        <header class="flex_container" id="header">
+            <h1>Axecute!</h1>
+        </header>
+        <div class="flex_container" id="row_1">
+            <div class="flex_container" id="inv">
+                <div class="flex_container" id="EXP">
+                    <div id="EXP_bar_background">
+                        <div class="flex_container" id="EXP_bar"></div>
+                        <p id="EXP_ratio"></p>
+                    </div>
+                    <div class="flex_container" id="stats">
+                        <button class="stat_butt" id="STR"></button>
+                        <button class="stat_butt" id="END"></button>
+                        <button class="stat_butt" id="AGL"></button>
+                        <button class="stat_butt" id="LUCK"></button>
+                    </div>
+                </div>
+                <div class="flex_container" id="personal_inv">
+                    <div class="flex_container" id="personal_inv_column_1">
+                        <div class="equipment_slot" id="weapon">None</div>
+                        <div class="equipment_slot" id="sheild">None</div>
+                        <div class="equipment_slot" id="hands">None</div>
+                        <div class="equipment_slot" id="accessory">None</div>
+                    </div>
+                    <div class="flex_container" id="personal_inv_column_2">
+                        <div class="equipment_slot" id="head">None</div>
+                        <div class="equipment_slot" id="chest">None</div>
+                        <div class="equipment_slot" id="legs">None</div>
+                        <div class="equipment_slot" id="feet">None</div>
+                    </div>
+                </div>
+                <div class="flex_container" id="backpack">
+                    <div class="flex_container" id="inv_header">[B A C K P A C K]</div>
+                    <div class="flex_container" id="holding_area">
+                        <div class="flex_container" id="backpack_column_1"></div>
+                            
+                        <div class="flex_container" id="backpack_column_2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="flex_container" id="combat_box">
+                <div class="flex_container" id="your_box">
+                    <div class="flex_container" id="title"><p id="your_title"></p></div>
+                    <div class="flex_container" id="health"><p id="your_health"></p></div>
+                    <div class="flex_container" id="stats"><p id="your_stats"></p></div>
+                    <div class="flex_container" id="character"><p id="your_character"></p></div>
+                </div>
+                <div class="flex_container" id="enemy_box">
+                    <div class="flex_container" id="title"><p id="enemy_title"></p></div>
+                    <div class="flex_container" id="health"><p id="enemy_health"></p></div>
+                    <div class="flex_container" id="stats"><p id="enemy_stats"></p></div>
+                    <div class="flex_container" id="character"><p id="enemy_character"></p></div>
+                </div>
+            </div>
+        <div class="flex_container" id="the_log">    
+                <div class="flex_container" id="msg_header">M e s s a g e - L o g</div>
+            <div class="flex_container" id="msg_log">
+            </div>
+        </div>    
+    </div>
+    <div class="flex_container" id="row_2">
+        <div class="flex_container" id="action_box"></div>
+        <div class="flex_container" id="bookshelf"></div>
+    </div>
+    <div class="flex_container" id="buttons">
+        <button id="Battle_Start">Fight!</button>
+        <button id="Heal">Heal</button>
+    </div>
+    <div class="popup" id="EXP_tooltip"></div>
+    <div class="popup" id="STR_tooltip">This is your strength, this is how hard you can deliever a blow, how much force you can use, and how ripping your muscles are! Increasing strength will increase your attack, each level of strength requires 1 AP.</div>
+    <div class="popup" id="END_tooltip">This is your endurance, this is how long you can run, how far you can push yourself, how many hits you can take! Increasing endurance will increase your health, each level of endurance requires 1 AP. </div>
+    <div class="popup" id="AGL_tooltip">This is your agilty, this is how fast you can move, how easily you can dodge, how quick you can swing your axe! Increasing agilty will increase how many times you will hit, if you hit, each level of agilty requires 1 AP.</div>
+    <div class="popup" id="LUCK_tooltip">This is your luck, your chance to find good fortune, your chance for your blade to find your enemies weakness, your chance for the universe to give you a break! Increasing your luck will increase crit chance and crit damage, each level of luck requires 5 AP.</div>
+    </body>
+</html>
