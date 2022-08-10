@@ -352,5 +352,7 @@ div {
     height: 25em;
     margin-right: 2%;
     margin-left: 0.5%;
-    background-image: url(".\Assets\Bookself.png");
+    background-image: url(./Assets/Bookself.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
