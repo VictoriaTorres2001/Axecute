@@ -343,6 +343,8 @@ div {
     margin-right: 0.5%;
     align-items: center;
     justify-content: flex-start;
+    background-image: none;
+    background-color: rgb(4, 43, 65);
 }
 
 /*Bookshelf*/
