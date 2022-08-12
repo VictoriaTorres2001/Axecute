@@ -74,7 +74,17 @@ let msglogcount = 0;
 let bbcount = 1;
 let column = 0;
 
+let season = "Autumn";
+let weather = "Sunny";
+
+let year = 201;
+let month = 10;
+let day = 16;
+let hour = 0;
+let minute = 0;
+
 window.onload = function () {
+    time();
     InfoReset(You);
     InfoReset(enemy);
     EXP();
@@ -83,6 +93,8 @@ window.onload = function () {
     ENDtooltip();
     AGLtooltip();
     LUCKtooltip();
+
+    document.getElementById("season_weather").innerHTML = "[" + season + "] [" + weather + "]";
 
     document.getElementById('STR').onclick = STRstatup;
     document.getElementById('END').onclick = ENDstatup;
@@ -429,5 +441,1367 @@ function LUCKtooltip () {
     function LUCKstatup () {
         if (You.AP >= 5){ 
             statup("LUCK");
+        }
+    }
+
+    async function time () {
+        while (true) {
+            let date = year + "/" + month + "/" + day;
+            let clock = ((hour<10?'0':'') + hour) + ':' + ((minute<10?'0':'') + minute);
+            let time = date + "|" + clock;
+            document.getElementById("time_date").innerHTML = time;
+            minute ++;
+            if (minute >= 60) {
+                minute = 0;
+                hour ++;
+            } else if (hour >= 24) {
+                hour = 0;
+                day ++;
+                weatherfunc();
+                document.getElementById("season_weather").innerHTML = "[" + season + "] [" + weather + "]";
+            }
+            switch (month) {
+                default:
+                    console.log("Month switch Error");
+                    break;
+                case 1:
+                    if (day >= 31) {month ++; day = 1;};
+                    break;
+                case 2:
+                    if (year % 4 == 0) {
+                    if (day >= 28) {month ++; day = 1; season = "Spring"};
+                    } else {
+                        if (day >= 29) {month ++; day = 1; season = "Spring"};
+                    }
+                    break;
+                case 3:
+                    if (day >= 31) {month ++; day = 1;};
+                    break;
+                case 4:
+                    if (day >= 30) {month ++; day = 1;};
+                    break;
+                case 5:
+                    if (day >= 31) {month ++; day = 1; season = "Summer";};
+                    break;
+                case 6:
+                    if (day >= 30) {month ++; day = 1;};
+                    break;
+                case 7:
+                    if (day >= 31) {month ++; day = 1;};
+                    break;
+                case 8:
+                    if (day >= 31) {month ++; day = 1; season = "Autumn";};
+                    break;
+                case 9:
+                    if (day >= 30) {month ++; day = 1;};
+                    break;
+                case 10:
+                    if (day >= 31) {month ++; day = 1;};
+                    break;
+                case 11:
+                    if (day >= 30) {month ++; day = 1; season = "Winter"};
+                    break;
+                case 12:
+                    if (day >= 31) {year ++; month = 1; day = 1;};
+                    break;
+            }
+            await sleep(1000);
+        }       
+    }
+
+    function weatherfunc () {
+        let chance;
+        switch (season) {
+            default:
+                    console.log("Season switch Error");
+                    break;
+            case 'Spring':
+                    switch (weather) {
+                        default:
+                            console.log("Weather switch Error");
+                            break;
+                        case "Sunny":
+                            chance = Math.random()*1000;
+                            switch (true) {
+                                default:
+                                    console.log("Chance switch Error");
+                                    break;
+                                case (chance <= 500):
+                                    weather = "Sunny";
+                                    break;
+                                case (chance <= 650 && chance > 500):
+                                    weather = "Cloudy";
+                                    break;
+                                case (chance <= 850 && chance > 650):
+                                    weather = "Partly Cloudy";
+                                    break;  
+                                case (chance <= 900 && chance > 850):
+                                    weather = "Overcast";
+                                    break;
+                                case (chance <= 910 && chance > 900):
+                                    weather = "Raining";
+                                    break;
+                                case (chance < 0):
+                                    weather = "Snowing";
+                                    break;
+                                case (chance <= 915 && chance > 910):
+                                    weather = "Foggy";
+                                    break;
+                                case (chance <= 918 && chance > 915):
+                                    weather = "Lightning Storm";
+                                    break;
+                                case (chance > 918):
+                                    weather = "Windy";
+                                    break;
+                            }
+                            break;
+                        case "Cloudy":
+                            chance = Math.random()*1000;
+                            switch (true) {
+                                default:
+                                    console.log("Chance switch Error");
+                                    break;
+                                case (chance <= 200):
+                                    weather = "Sunny";
+                                    break;
+                                case (chance <= 500 && chance > 200):
+                                    weather = "Cloudy";
+                                    break;
+                                case (chance <= 600 && chance > 500):
+                                    weather = "Partly Cloudy";
+                                    break;  
+                                case (chance <= 750 && chance > 600):
+                                    weather = "Overcast";
+                                    break;
+                                case (chance <= 850 && chance > 750):
+                                    weather = "Raining";
+                                    break;
+                                case (chance > 0):
+                                    weather = "Snowing";
+                                    break;
+                                case (chance <= 860 && chance > 850):
+                                    weather = "Foggy";
+                                    break;
+                                case (chance <= 900 && chance > 860):
+                                    weather = "Lightning Storm";
+                                    break;
+                                case (chance > 900):
+                                    weather = "Windy";
+                                    break;
+                            }
+                            break;
+                        case "Partly Cloudy":
+                            chance = Math.random()*1000;
+                            switch (true) {
+                                default:
+                                    console.log("Chance switch Error");
+                                    break;
+                                case (chance <= 200):
+                                    weather = "Sunny";
+                                    break;
+                                case (chance <= 350 && chance > 200):
+                                    weather = "Cloudy";
+                                    break;
+                                case (chance <= 650 && chance > 350):
+                                    weather = "Partly Cloudy";
+                                    break;  
+                                case (chance <= 850 && chance > 650):
+                                    weather = "Overcast";
+                                    break;
+                                case (chance <= 900 && chance > 850):
+                                    weather = "Raining";
+                                    break;
+                                case (chance > 0):
+                                    weather = "Snowing";
+                                    break;
+                                case (chance <= 910 && chance > 900):
+                                    weather = "Foggy";
+                                    break;
+                                case (chance <= 960 && chance > 910):
+                                    weather = "Lightning Storm";
+                                    break;
+                                case (chance > 960):
+                                    weather = "Windy";
+                                    break;
+                            }
+                            break;
+                        case "Overcast":
+                            chance = Math.random()*1000;
+                            switch (true) {
+                                default:
+                                    console.log("Chance switch Error");
+                                    break;
+                                case (chance <= 100):
+                                    weather = "Sunny";
+                                    break;
+                                case (chance <= 300 && chance > 100):
+                                    weather = "Cloudy";
+                                    break;
+                                case (chance <= 350 && chance > 300):
+                                    weather = "Partly Cloudy";
+                                    break;  
+                                case (chance <= 500 && chance > 350):
+                                    weather = "Overcast";
+                                    break;
+                                case (chance <= 800 && chance > 500):
+                                    weather = "Raining";
+                                    break;
+                                case (chance < 0):
+                                    weather = "Snowing";
+                                    break;
+                                case (chance <= 810 && chance > 800):
+                                    weather = "Foggy";
+                                    break;
+                                case (chance <= 900 && chance > 810):
+                                    weather = "Lightning Storm";
+                                    break;
+                                case (chance > 900):
+                                    weather = "Windy";
+                                    break;
+                            }
+                            break;
+                        case "Raining":
+                            chance = Math.random()*1000;
+                            switch (true) {
+                                default:
+                                    console.log("Chance switch Error");
+                                    break;
+                                case (chance <= 150):
+                                    weather = "Sunny";
+                                    break;
+                                case (chance <= 300 && chance > 150):
+                                    weather = "Cloudy";
+                                    break;
+                                case (chance <= 500 && chance > 300):
+                                    weather = "Partly Cloudy";
+                                    break;  
+                                case (chance <= 600 && chance > 500):
+                                    weather = "Overcast";
+                                    break;
+                                case (chance <= 650 && chance > 600):
+                                    weather = "Raining";
+                                    break;
+                                case (chance < 0):
+                                    weather = "Snowing";
+                                    break;
+                                case (chance <= 800 && chance > 650):
+                                    weather = "Foggy";
+                                    break;
+                                case (chance <= 900 && chance > 800):
+                                    weather = "Lightning Storm";
+                                    break;
+                                case (chance > 900):
+                                    weather = "Windy";
+                                    break;
+                            }
+                            break;
+                        case "Snowing":
+                            chance = Math.random()*1000;
+                            switch (true) {
+                                default:
+                                    console.log("Chance switch Error");
+                                    break;
+                                case (chance <= 50):
+                                    weather = "Sunny";
+                                    break;
+                                case (chance <= 200 && chance > 50):
+                                    weather = "Cloudy";
+                                    break;
+                                case (chance <= 250 && chance > 200):
+                                    weather = "Partly Cloudy";
+                                    break;  
+                                case (chance <= 350 && chance > 250):
+                                    weather = "Overcast";
+                                    break;
+                                case (chance <= 500 && chance > 350):
+                                    weather = "Raining";
+                                    break;
+                                case (chance < 0):
+                                    weather = "Snowing";
+                                    break;
+                                case (chance <= 800 && chance > 500):
+                                    weather = "Foggy";
+                                    break;
+                                case (chance <= 900 && chance > 800):
+                                    weather = "Lightning Storm";
+                                    break;
+                                case (chance > 900):
+                                    weather = "Windy";
+                                    break;
+                            }
+                            break;
+                        case "Foggy":
+                            chance = Math.random()*1000;
+                            switch (true) {
+                                default:
+                                    console.log("Chance switch Error");
+                                    break;
+                                case (chance <= 400):
+                                    weather = "Sunny";
+                                    break;
+                                case (chance <= 500 && chance > 400):
+                                    weather = "Cloudy";
+                                    break;
+                                case (chance <= 600 && chance > 500):
+                                    weather = "Partly Cloudy";
+                                    break;  
+                                case (chance <= 650 && chance > 600):
+                                    weather = "Overcast";
+                                    break;
+                                case (chance <= 700 && chance > 650):
+                                    weather = "Raining";
+                                    break;
+                                case (chance < 0):
+                                    weather = "Snowing";
+                                    break;
+                                case (chance <= 900 && chance > 700):
+                                    weather = "Foggy";
+                                    break;
+                                case (chance <= 901 && chance > 900):
+                                    weather = "Lightning Storm";
+                                    break;
+                                case (chance > 901):
+                                    weather = "Windy";
+                                    break;
+                            }
+                            break;
+                        case "Lightning Storm":
+                            chance = Math.random()*1000;
+                            switch (true) {
+                                default:
+                                    console.log("Chance switch Error");
+                                    break;
+                                case (chance <= 50):
+                                    weather = "Sunny";
+                                    break;
+                                case (chance <= 150 && chance > 50):
+                                    weather = "Cloudy";
+                                    break;
+                                case (chance <= 250 && chance > 150):
+                                    weather = "Partly Cloudy";
+                                    break;  
+                                case (chance <= 300 && chance > 250):
+                                    weather = "Overcast";
+                                    break;
+                                case (chance <= 600 && chance > 300):
+                                    weather = "Raining";
+                                    break;
+                                case (chance <= 250):
+                                    weather = "Snowing";
+                                    break;
+                                case (chance <= 750 && chance > 600):
+                                    weather = "Foggy";
+                                    break;
+                                case (chance <= 900 && chance > 750):
+                                    weather = "Lightning Storm";
+                                    break;
+                                case (chance > 900):
+                                    weather = "Windy";
+                                    break;
+                            }
+                            break;
+                        case "Windy":
+                            chance = Math.random()*1000;
+                            switch (true) {
+                                default:
+                                    console.log("Chance switch Error");
+                                    break;
+                                case (chance <= 500):
+                                    weather = "Sunny";
+                                    break;
+                                case (chance <= 550 && chance > 500):
+                                    weather = "Cloudy";
+                                    break;
+                                case (chance <= 600 && chance > 550):
+                                    weather = "Partly Cloudy";
+                                    break;  
+                                case (chance <= 650 && chance > 600):
+                                    weather = "Overcast";
+                                    break;
+                                case (chance <= 700 && chance > 650):
+                                    weather = "Raining";
+                                    break;
+                                case (chance < 0):
+                                    weather = "Snowing";
+                                    break;
+                                case (chance <= 750 && chance > 700):
+                                    weather = "Foggy";
+                                    break;
+                                case (chance <= 800 && chance > 750):
+                                    weather = "Lightning Storm";
+                                    break;
+                                case (chance > 800):
+                                    weather = "Windy";
+                                    break;
+                            }
+                            break;
+                    }
+                break;
+            case 'Summer':
+                switch (weather) {
+                    default:
+                        console.log("Weather switch Error");
+                        break;
+                    case "Sunny":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 750):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 800 && chance > 750):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 875 && chance > 800):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 885 && chance > 875):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 890 && chance > 885):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance < 0):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 891 && chance > 890):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 891):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Cloudy":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 700):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 800 && chance > 700):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 850 && chance > 800):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 900 && chance > 850):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 950 && chance > 900):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance < 0):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 975 && chance > 950):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 975):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Partly Cloudy":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 700):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 750 && chance > 700):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 850 && chance > 750):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 900 && chance > 850):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 950 && chance > 900):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance < 0):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 975 && chance > 950):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 975):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Overcast":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 600):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 650 && chance > 600):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 700 && chance > 650):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 800 && chance > 700):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 900 && chance > 800):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance < 0):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 900):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Raining":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 500):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 550 && chance > 500):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 600 && chance > 550):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 700 && chance > 600):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 850 && chance > 700):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance < 0):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 850):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Snowing":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 500):
+                                weather = "Sunny";
+                                break;
+                            case (chance < 0):
+                                weather = "Cloudy";
+                                break;
+                            case (chance < 0):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance < 0):
+                                weather = "Overcast";
+                                break;
+                            case (chance < 0):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance < 0):
+                                weather = "Foggy";
+                                break;
+                            case (chance < 0):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 500):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Foggy":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 750):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 800 && chance > 750):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 850 && chance > 800):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 875 && chance > 850):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 880 && chance > 875):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 900 && chance > 880):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 905 && chance > 900):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 905):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Lightning Storm":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 500):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 550 && chance > 500):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 600 && chance > 550):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 700 && chance > 600):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 850 && chance > 700):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance < 0):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 850):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Windy":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 400):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 450 && chance > 400):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 500 && chance > 450):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 525 && chance > 500):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 540 && chance > 525):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 545 && chance > 540):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 550 && chance > 545):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 550):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                }
+                break;
+            case 'Autumn':
+                switch (weather) {
+                    default:
+                        console.log("Weather switch Error");
+                        break;
+                    case "Sunny":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 400):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 450 && chance > 400):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 500 && chance > 450):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 550 && chance > 500):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 600 && chance > 550):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 650 && chance > 600):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 700 && chance > 650):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 700):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Cloudy":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 400):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 550 && chance > 400):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 600 && chance > 550):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 750 && chance > 600):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 800 && chance > 750):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 850 && chance > 800):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 900 && chance > 850):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 900):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Partly Cloudy":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 400):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 500 && chance > 400):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 650 && chance > 500):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 750 && chance > 650):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 775 && chance > 750):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 850 && chance > 775):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 900 && chance > 850):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 900):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Overcast":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 400):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 500 && chance > 400):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 600 && chance > 500):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 750 && chance > 600):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 850 && chance > 750):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";                                    
+                                break;
+                            case (chance <= 900 && chance > 850):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 900):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Raining":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 300):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 400 && chance > 300):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 500 && chance > 400):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 650 && chance > 500):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 750 && chance > 650):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";                                    
+                                break;
+                            case (chance <= 850 && chance > 750):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 850):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Snowing":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 500):
+                                weather = "Sunny";
+                                break;
+                            case (chance < 0):
+                                weather = "Cloudy";
+                                break;
+                            case (chance < 0):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance < 0):
+                                weather = "Overcast";
+                                break;
+                            case (chance < 0):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance < 0):
+                                weather = "Foggy";
+                                break;
+                            case (chance < 0):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 500):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Foggy":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 400):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 425 && chance > 400):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 450 && chance > 425):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 475 && chance > 450):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 500 && chance > 475):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 800 && chance > 500):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 825 && chance > 800):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 825):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Lightning Storm":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 300):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 400 && chance > 300):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 500 && chance > 400):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 650 && chance > 500):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 750 && chance > 650):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";                                    
+                                break;
+                            case (chance <= 850 && chance > 750):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 850):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Windy":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 400):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 450 && chance > 400):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 475 && chance > 450):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 525 && chance > 500):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 550 && chance > 525):
+                                weather = "Raining";
+                                break;
+                            case (chance < 0):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 575 && chance > 550):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 600 && chance > 575):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 600):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                }
+                break;
+            case 'Winter':
+                switch (weather) {
+                    default:
+                        console.log("Weather switch Error");
+                        break;
+                    case "Sunny":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 300):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 400 && chance > 300):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 500 && chance > 400):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 600 && chance > 500):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 700 && chance > 600):
+                                weather = "Raining";
+                                break;
+                            case (chance <= 800 && chance > 700):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 900 && chance > 800):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 900):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Cloudy":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 200):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 350 && chance > 200):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 400 && chance > 350):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 550 && chance > 400):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 650 && chance > 550):
+                                weather = "Raining";
+                                break;
+                            case (chance <= 800 && chance > 650):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 900 && chance > 800):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 900):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Partly Cloudy":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 300):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 400 && chance > 300):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 550 && chance > 400):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 600 && chance > 550):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 650 && chance > 600):
+                                weather = "Raining";
+                                break;
+                            case (chance <= 750 && chance > 650):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 850 && chance > 750):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 900 && chance > 850):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 900):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Overcast":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 200):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 350 && chance > 200):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 400 && chance > 350):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 550 && chance > 400):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 650 && chance > 550):
+                                weather = "Raining";
+                                break;
+                            case (chance <= 800 && chance > 650):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 900 && chance > 800):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 900):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                 break;
+                        }
+                        break;
+                    case "Raining":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 200):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 350 && chance > 200):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 400 && chance > 350):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 500 && chance > 400):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 650 && chance > 500):
+                                weather = "Raining";
+                                break;
+                            case (chance <= 800 && chance > 650):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 900 && chance > 800):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 900):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Snowing":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 100):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 250 && chance > 100):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 300 && chance > 250):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 450 && chance > 300):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 550 && chance > 450):
+                                weather = "Raining";
+                                break;
+                            case (chance <= 800 && chance > 550):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 900 && chance > 800):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 900):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Foggy":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 300):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 400 && chance > 300):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 500 && chance > 400):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 550 && chance > 500):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 650 && chance > 550):
+                                weather = "Raining";
+                                break;
+                            case (chance <= 750 && chance > 650):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 900 && chance > 750):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 900):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Lightning Storm":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 200):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 350 && chance > 200):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 400 && chance > 350):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 500 && chance > 400):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 650 && chance > 500):
+                                weather = "Raining";
+                                break;
+                            case (chance <= 800 && chance > 650):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 900 && chance > 800):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 950 && chance > 900):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 950):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                    case "Windy":
+                        chance = Math.random()*1000;
+                        switch (true) {
+                            default:
+                                console.log("Chance switch Error");
+                                break;
+                            case (chance <= 100):
+                                weather = "Sunny";
+                                break;
+                            case (chance <= 200 && chance > 100):
+                                weather = "Cloudy";
+                                break;
+                            case (chance <= 300 && chance > 200):
+                                weather = "Partly Cloudy";
+                                break;  
+                            case (chance <= 350 && chance > 300):
+                                weather = "Overcast";
+                                break;
+                            case (chance <= 400 && chance > 350):
+                                weather = "Raining";
+                                break;
+                            case (chance <= 500 && chance > 400):
+                                weather = "Snowing";
+                                break;
+                            case (chance <= 600 && chance > 500):
+                                weather = "Foggy";
+                                break;
+                            case (chance <= 625 && chance > 600):
+                                weather = "Lightning Storm";
+                                break;
+                            case (chance > 625):
+                                weather = "Windy";
+                                break;
+                        }
+                        break;
+                }
+                 break;
         }
     }
