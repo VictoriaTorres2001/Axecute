@@ -102,8 +102,8 @@ Outside_Main = {options: [["Go to Forest", Forest], ["Go Home", Home_Living_Room
 Forest = {options: [["Leave Forest", Outside_Main]]};
 /*^Locations^*/
 
-location = Home_Living_Room;
-enemy = location.enemies[0];
+char_location = Home_Living_Room;
+enemy = char_location.enemies[0];
 
 let msglogcount = 0;
 let bbcount = 1;
