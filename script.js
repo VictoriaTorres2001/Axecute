@@ -1,4 +1,4 @@
-/*vitemsv*/
+/*vItemsv*/
 
 let Slime_Blob = {
     id: 1,
@@ -30,7 +30,18 @@ let Rock = {
     Have: false
 }
 
-/*^items^*/
+/*^Items^*/
+/*vEntitiesv*/
+
+let none = {
+    name: "Nothing",
+    level: 1,
+    title: "The Void",
+    strength: 1,
+    endurance: 1,
+    agility: 1,
+    luck: 1
+}
 
 let You = {
     name: "Alex",
@@ -68,7 +79,31 @@ let Slime = {
 Slime.health = Slime.endurance*15;
 Slime.current_health = Slime.health;
 
-let enemy = Slime;
+/*^Entities^*/
+/*vLocationsv*/
+
+let Home_Living_Room = {
+    name: "Living Room",
+    enemies: [none]
+}
+
+let Outside_Main = {
+    name: "Outside",
+    enemies: [none]
+}
+
+let Forest = {
+    name: "Living Room",
+    enemies: [[Slime, 100]]
+}
+
+Home_Living_Room = {options: [["Go Outside", Outside_Main]]};
+Outside_Main = {options: [["Go to Forest", Forest], ["Go Home", Home_Living_Room]]};
+Forest = {options: [["Leave Forest", Outside_Main]]};
+/*^Locations^*/
+
+location = Home_Living_Room;
+enemy = location.enemies[0];
 
 let msglogcount = 0;
 let bbcount = 1;
@@ -305,6 +340,12 @@ function InfoReset (entity) {
                 document.getElementById('AGL').style.border  = "4px inset rgb(221 229 84)";
                 if (You.AP >= 5) {document.getElementById('LUCK').style.border  = "4px inset rgb(221 229 84)";}
             } 
+            if (You.AP < 1) {
+                document.getElementById('STR').style.border = "1px solid rgb(4, 43, 65)";
+                document.getElementById('END').style.border  = "1px solid rgb(4, 43, 65)";
+                document.getElementById('AGL').style.border  = "1px solid rgb(4, 43, 65)";
+            }
+            if (You.AP < 5) {document.getElementById('LUCK').style.border  = "1px solid rgb(4, 43, 65)";}
         } else {
             document.getElementById('enemy_title').innerHTML = title(entity);
             document.getElementById('enemy_health').innerHTML = hp(entity);
