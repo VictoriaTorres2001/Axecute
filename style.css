@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(50, 0, 255);
+    background-color: rgb(50, 0, 100);
     font-family: MS Gothic;
 }
 
@@ -32,6 +32,41 @@ div {
     justify-content: center;
 }
 
+#blackscreen{
+    width: 100%;
+    height: 100%;
+    opacity:1;
+    transition:5s;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: #000;
+    border: none;
+    box-shadow: none;
+    background-image: none;
+    z-index: 1;
+}
+
+#intro_message_box{
+    opacity: 0;
+    transition:5s;
+    top: 50%;
+    left: 50%;
+    width: 550px;
+    height: 550px;
+    margin-left: -350px; 
+    margin-top: -350px; 
+    position: absolute;
+    background-color: #000;
+    border: 10px double antiquewhite;
+    box-shadow: none;
+    background-image: none;
+    z-index: 0;
+    color: antiquewhite;
+    text-align: center;
+    padding: 2em;
+    font-size: x-large;
+}
 
 #row_1{
     background-image: none;
@@ -307,11 +342,12 @@ div {
     background-color: rgb(4, 43, 65);
     flex-direction: column;
     justify-content: flex-start;
+    align-items: center;
 }
 
 .bbar {
     align-items: center;
-    width: 100%;
+    width: 99%;
     height: 1.5em;
     border: 1px solid black;
     box-shadow: none;
@@ -319,7 +355,6 @@ div {
     display: flex;
     background-color: rgb(78, 107, 124);
     font-size: small;
-    padding-left: 10px;
 }
 
 .popup {
@@ -335,18 +370,6 @@ div {
 
 /*Action Box*/
 
-#action_box {
-    width: 25%;
-    height: 25em;
-    flex-direction: column;
-    margin-left: 2%;
-    margin-right: 0.5%;
-    align-items: center;
-    justify-content: flex-start;
-    background-image: none;
-    background-color: rgb(4, 43, 65);
-}
-
 .action_grid{
     height: 100%;
     padding-left: .5em;
@@ -357,6 +380,35 @@ div {
     box-shadow: none;
     display: flex;
     align-items: center;
+}
+
+.abar {
+    width: 100%;
+    height: 2.5em;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(10, 50, 100);
+    color: antiquewhite;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    border: 1px solid #000;
+    font-family: MS Gothic;
+    font-weight: bold;
+}
+
+.abar:hover {
+    background-color: rgb(46, 91, 146)
+}
+
+#action_box {
+    width: 25%;
+    height: 25em;
+    flex-direction: column;
+    margin-left: 2%;
+    margin-right: 0.5%;
+    align-items: center;
+    justify-content: flex-start;
+    background-image: none;
+    background-color: rgb(4, 43, 65);
 }
 
 #action_box_head{
@@ -391,6 +443,25 @@ div {
     justify-content: right;
 }
 
+#action_main_box{
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#header_action_box {
+    width: 100%;
+    height: 20%;
+    border: none;
+    background-color: rgb(4, 43, 65);
+    background-image: none;
+    align-items: center;
+    justify-content: center;
+    color: antiquewhite;
+    text-align: center;
+}
 /*Bookshelf*/
 
 #bookshelf {
@@ -401,4 +472,22 @@ div {
     background-image: url(./Assets/Bookself.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.book {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 4.5em;
+    height: 45%;
+    border: none;
+    box-shadow: none;
+    position: relative;
+}
+
+#MAP {
+    background-image: url(./Assets/MAP.png);
+    left: 2.7%; 
+    top: 3.7%;
 }
