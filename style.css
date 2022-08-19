@@ -491,3 +491,61 @@ div {
     left: 2.7%; 
     top: 3.7%;
 }
+/*Technical Bar*/
+
+#technical_bar{
+    position: fixed;
+    background-color: gray;
+    background-image: none;
+    bottom: 0;
+    left: 0;
+    max-width: 1920px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+#save{
+    margin-left: 1px;
+    background-color: rgb(4, 43, 65);
+    color: antiquewhite;
+    font-family: MS Gothic;
+    font-size: 16px;
+    height: 100%;
+    height: 1.5em;
+}
+
+#version{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(4, 43, 65);
+    color: antiquewhite;
+    height: 1.5em;
+    width: 5%;
+    background-image: none;
+    border-top: none;
+    border-bottom: none;
+    box-shadow: none;
+    text-align: center;
+}
+
+#auto_save_check{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(4, 43, 65);
+    color: antiquewhite;
+    background-image: none;
+    height: 1.5em;
+    border-top: none;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+#delete_save{
+    margin-left: auto;
+    margin-right: 3px;
+    background-color: rgb(4, 43, 65);
+    color: antiquewhite;
+    font-family: MS Gothic;
+    height: 1.5em;
+    font-size: 16px;
+}

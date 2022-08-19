@@ -197,9 +197,13 @@ let Forest_Gathering = {
 }
 
 /*^Locations^*/
+const version = "v0.01";
+
 
 char_location = Home_Bedroom;
 enemy = none;
+
+let introplayed;
 
 let msglogcount = 0;
 let bbcount = 1;
@@ -219,8 +223,15 @@ let fighting = false;
 let healing = false;
 
 window.onload = function () {
-    intro();
-
+    if (console.log(localStorage.getItem('introplayed')), localStorage.getItem('introplayed') != 'true') {
+      intro();  
+      console.log("intro played")
+    } else {
+        document.getElementById('blackscreen').remove();
+        document.getElementById('intro_message_box').remove();
+        console.log("intro not played");
+    }
+    
     time();
     InfoReset(You);
     InfoReset(enemy);
@@ -242,6 +253,17 @@ window.onload = function () {
     document.getElementById('LUCK').onclick = LUCKstatup;
 
     document.getElementById('MAP').style.visibility = 'hidden';
+
+    document.getElementById('save').addEventListener('click', () => {save(); console.log("save!");});
+    document.getElementById('auto_save').addEventListener('change', async function() {
+        while (this.checked) {
+          save();
+          await sleep(60000); 
+        }
+      });
+    document.getElementById('delete_save').addEventListener('click', () => {localStorage.clear(); console.log("Save deleted");});
+
+    document.getElementById('version').innerHTML = version;
 };
 
 
@@ -2117,5 +2139,10 @@ async function intro() {
     document.getElementById('blackscreen').remove();
     intro_message(message_numb);
     document.getElementById('intro_message_box').addEventListener('click', () => {message_numb++; intro_message(message_numb);});
+    localStorage.setItem('introplayed', "true");
 }
 
+function save() {
+
+    mbar("Game saved!");
+}
