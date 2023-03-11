@@ -1,3 +1,7 @@
+html {
+    overflow: hidden;
+}
+
 body {
     background-color: rgb(50, 0, 100);
     font-family: MS Gothic;
@@ -25,6 +29,26 @@ div {
     box-shadow: 2px 2px 3px rgb(0, 0, 80);
     background-image: linear-gradient(to bottom right, rgb(76, 0, 255), rgb(162, 0, 255));
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #3b3b3b; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
 
 .flex_container {
     display: flex;
@@ -136,8 +160,54 @@ div {
     width: 100%;
     height: 75%;
     margin-top: 0;
+    display: flex;
+    align-content: flex-start;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-end;
 }
 
+.effects{
+    visibility: hidden;
+    width: 7%;
+    height: 7%;
+    margin: 1%;
+}
+
+#Sluggish_effect{
+    visibility: inherit;
+    background-image: url(Assets/Slug.png);
+    background-size: 100%;
+}
+
+#Healing_effect{
+    visibility: inherit;
+    background-image: url(Assets/Healing.png);
+    background-size: 100%;
+}
+
+#Defense_effect{
+    visibility: inherit;
+    background-image: url(Assets/Defense.png);
+    background-size: 100%;
+}
+
+#Poison_effect{
+    visibility: inherit;
+    background-image: url(Assets/Poison.png);
+    background-size: 100%;
+}
+
+#Euphoria_effect{
+    visibility: inherit;
+    background-image: url(Assets/Euphoria.png);
+    background-size: 100%;
+}
+
+#Attack_effect{
+    visibility: inherit;
+    background-image: url(Assets/Attack.png);
+    background-size: 100%;
+}
 /*Fight Buttons*/
 
 #buttons {
@@ -357,6 +427,17 @@ div {
     font-size: small;
 }
 
+.usebutt{
+    margin-left: auto;
+    margin-right: 1%;
+    background-color: #007e71;
+}
+
+.usebutt:hover{
+    background-color: #00a796;
+}
+
+
 .popup {
     display: none;
     position: absolute;
@@ -400,6 +481,7 @@ div {
 }
 
 #action_box {
+    position: relative;
     width: 25%;
     height: 25em;
     flex-direction: column;
@@ -415,7 +497,7 @@ div {
     width: 100%;
     height: 4em;
     display: grid;
-    grid-auto-columns: 50%;
+    grid-auto-columns: 25%;
     grid-auto-rows: 50%;
     background-image: none;
     background-color: rgb(10, 50, 100);
@@ -427,18 +509,18 @@ div {
 }
 
 #season_weather{
-    grid-column: 2;
+    grid-column: 2 / 5;
     grid-row: 1;
     justify-content: right;
 }
 
 #Location{
-    grid-column: 1;
+    grid-column: 1 / 3;
     grid-row: 2;
 }
 
 #time_date{
-    grid-column: 2;
+    grid-column: 3 / 5;
     grid-row: 2;
     justify-content: right;
 }
@@ -452,7 +534,9 @@ div {
 }
 
 #header_action_box {
-    width: 100%;
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 98%;
     height: 20%;
     border: none;
     background-color: rgb(4, 43, 65);
@@ -462,6 +546,22 @@ div {
     color: antiquewhite;
     text-align: center;
 }
+
+#coins {
+    position: absolute;
+    width: auto;
+    height: 5%;
+    margin-top: auto;
+    bottom: 0;
+    right: 0;
+    background-image: none;
+    box-shadow: none;
+    background-color: rgb(4, 43, 65);
+    color: rgb(255, 255, 255);
+    text-align: end;
+    padding: 3px;
+}
+
 /*Bookshelf*/
 
 #bookshelf {
@@ -488,9 +588,926 @@ div {
 
 #MAP {
     background-image: url(./Assets/MAP.png);
-    left: 2.7%; 
+    left: 3%; 
     top: 3.7%;
+    visibility: hidden;
 }
+
+#SKILLS{
+    background-image: url(./Assets/SKILLS.png);
+    left: .5%; 
+    top: 3.7%;
+    visibility: hidden;
+}
+
+#CRAFTING{
+    background-image: url(./Assets/CRAFTING.png);
+    left: -2%; 
+    top: 3.7%;
+    visibility: hidden;
+}
+
+#SMITHING{
+    background-image: url(./Assets/SMITHING.png);
+    left: -4.5%; 
+    top: 3.7%;
+    visibility: hidden;
+}
+
+#PARTS{
+    background-image: url(./Assets/PARTS.png);
+    left: -7%; 
+    top: 3.7%;
+    visibility: hidden;
+}
+
+#EQUIPMENT{
+    background-image: url(./Assets/EQUIPMENT.png);
+    left: -9.5%; 
+    top: 3.7%;
+    visibility: hidden;
+}
+
+#book_pages{
+    position: absolute;
+    border: none;
+    box-shadow: none;
+    background-image: url(./Assets/Pages.png);
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    visibility: hidden;
+}
+
+.exit_butt{
+    position: absolute;
+    border: none;
+    box-shadow: none;
+    background-image: none;
+    background-color: none;
+    width: 1em;
+    height: 1em;
+    visibility: hidden;
+    color: red;
+    top: 8%;
+    left: 89%;
+    vertical-align: middle;
+    text-align: center;
+    font-size: xx-large;
+    z-index: 3;
+}
+
+.tab {
+    position: absolute;
+    background-image: none;
+    box-shadow: none;
+    width: 4.0%;
+    height: 5em;
+    top: 1.1em;
+    writing-mode: vertical-lr;
+    transform: scale(-1, -1);
+    font-weight: bolder;
+}
+
+#Crafting_Tabs,
+#Smithing_Tabs{
+    visibility: hidden;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+#Crafting_Area,
+#Smithing_Area,
+#Skills_Report,
+#Skills_List,
+#Skill_Gives {
+    position: absolute;
+    box-shadow: none;
+    background-image: none;
+    width: 40%;
+    top: 11em;
+    left: 8%;
+    height: 70%;
+    visibility: hidden;
+    display: grid;
+}
+
+#Crafting_Header,
+#Smithing_Header,
+#Skills_Header {
+    width: 45%;
+    position: absolute;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    top: 1.5em;
+    left: 1.8em;
+    font-weight: bolder;
+    font-size: xx-large;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    visibility: hidden;
+}
+
+#Crafting_Description,
+#Smithing_Description,
+#Skills_Description {
+    width: 46%;
+    position: absolute;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    top: 5em;
+    left: 4.5%;
+    font-size: large;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    visibility: hidden;
+}
+/* Tabs */
+#Axe_Head{
+    background-color: red;
+}
+
+#Rod_Part{
+    background-color: lightslategray;
+    top: 6.1em;
+}
+
+#Binding{
+    background-color: green;
+    top: 11.1em;
+}
+
+#Handle{
+    background-color: orange;
+    top: 16.1em;
+}
+
+#Axe_Plate{
+    background-color: yellow;
+    top: 21.1em;
+}
+
+#Pick_Head{
+    background-color: purple;
+    top: 26.1em;
+}
+
+#Hammer_Head{
+    background-color: plum;
+    top: 31.1em;
+}
+
+#Shovel_Head{
+    background-color: lightseagreen;
+    top: 36.1em;
+}
+
+#Axe{
+    background-color: red;
+}
+
+#Head{
+    background-color: lightslategray;
+    top: 6.1em;
+}
+
+#Sheild{
+    background-color: green;
+    top: 11.1em;
+}
+
+#Chest{
+    background-color: orange;
+    top: 16.1em;
+}
+
+#Hands{
+    background-color: yellow;
+    top: 21.1em;
+}
+
+#Legs{
+    background-color: purple;
+    top: 26.1em;
+}
+
+#Feet{
+    background-color: plum;
+    top: 31.1em;
+}
+
+#Pickaxe{
+    background-color: lightseagreen;
+    top: 36.1em;
+}
+
+#Wood_Axe{
+    background-color: red;
+    top: 41.1em;
+}
+
+#Axife{
+    background-color: lightslategray;
+    top: 46.1em;
+}
+
+#Hammaxe,
+#Shovaxe,
+#Faxing_Axe{
+    transform: none;
+    left: 96.3%;
+}
+
+#Hammaxe{
+    background-color: green;
+}
+
+#Shovaxe{
+    background-color: orange;
+    top: 6.1em;
+}
+
+#Faxing_Axe{
+    background-color: yellow;
+    top: 11.1em;
+}
+
+/* Dropdown style */
+.CraftingBar {
+    background-image: none;
+    border: none;
+    box-shadow: none;
+    width: 10em;
+    visibility: hidden;
+}
+
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    box-shadow: none;
+    height: 3.55em;
+    width: 100%;
+  }
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: absolute;
+    display: inline-block;
+    box-shadow: none;
+    width: 49.6%;
+    background-image: none;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    background-image: none;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #f1f1f1}
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+/*Crafting Slots*/
+#slot_1,
+#slot_2,
+#slot_3,
+#slot_4,
+#slot_5,
+#slot_6,
+#slot_7,
+#slot_8,
+#slot_9,
+#slot_10{
+ grid-column: 1 / -1;
+}
+
+#slot_11{
+    grid-row: 1;
+}
+#slot_12{
+    grid-row: 2;
+}
+#slot_13{
+    grid-row: 3;
+}
+#slot_14{
+    grid-row: 4;
+}
+#slot_15{
+    grid-row: 5;
+}
+#slot_16{
+    grid-row: 6;
+}
+#slot_17{
+    grid-row: 7;
+}
+#slot_18{
+    grid-row: 8;
+}
+#slot_19{
+    grid-row: 9;
+}
+#slot_20{
+    grid-row: 10;
+}
+
+#slot_11,
+#slot_12,
+#slot_13,
+#slot_14,
+#slot_15,
+#slot_16,
+#slot_17,
+#slot_18,
+#slot_19,
+#slot_20{
+ grid-column: 2;
+}
+
+/* Crafting Output */
+#output {
+    visibility: hidden;
+    position: absolute;
+    left: 51%;
+    top: 2%;
+    width: 45%;
+    height: 95.7%;
+    background-image: none;
+    box-shadow: none;
+    border: none;
+}
+ 
+#out_desc{
+    position: absolute;
+    width: 93%;
+    height: 68%;
+    left: 4%;
+    top: 20%;
+    background-image: none;
+    box-shadow: none;
+    border: none;
+    font-size: larger;
+}
+
+#craftbt {
+    position: absolute;
+    width: 30%;
+    height: 5%;
+    left: 37%;
+    top: 92%;
+    visibility: hidden;
+}
+
+#smithbt {
+    position: absolute;
+    width: 30%;
+    height: 5%;
+    left: 37%;
+    top: 92%;
+    visibility: hidden;
+}
+
+/*Parts/Equipment Pages*/
+
+#parts_slots_page,
+#equip_slots_page {
+    visibility: hidden;
+    height: 100%;
+    background-image: none;
+    box-shadow: none;
+    border: none;
+}
+
+.part_slots,
+.equip_slots{
+    background-image: none;
+    box-shadow: none;
+    width: 44.5%;
+    height: 24%;
+    position: absolute;
+    left: 5.2%;
+    top: 8%;
+    border: 4mm ridge #ffee58;
+    box-sizing: border-box;
+    padding: 1%;
+    font-size: x-large;
+}
+
+#ppage_numb_1,
+#ppage_numb_2,
+#epage_numb_1,
+#epage_numb_2{
+    background-image: none;
+    box-shadow: none;
+    border: none;
+    font-size: xx-large;
+    position: absolute;
+    top: 93%;
+}
+
+#ppage_numb_1,
+#epage_numb_1{
+    left: 6%;
+}
+
+#ppage_numb_2,
+#epage_numb_2{
+    left: 93%;
+}
+
+#part_slot_4,
+#part_slot_5,
+#part_slot_6,
+#equip_slot_4,
+#equip_slot_5,
+#equip_slot_6{
+    width: 43.5%;
+    left: 52%;
+}
+
+#part_slot_2,
+#part_slot_5,
+#equip_slot_2,
+#equip_slot_5{
+    top: 36%;
+}
+
+#part_slot_3,
+#part_slot_6,
+#equip_slot_3,
+#equip_slot_6{
+    top: 64%;
+}
+
+.arrow{
+    background-image: none;
+    box-shadow: none;
+    border: none;
+    position: absolute;
+    top: 93%;
+    font-size: xx-large;
+}
+
+#part_forward_arrow,
+#equip_forward_arrow{
+    left: 54%;
+}
+
+#part_back_arrow,
+#equip_back_arrow{
+    left: 44%;
+}
+
+#Equipable,
+#Unequip,
+#Unequipable{
+    position: absolute;
+    background-image: none;
+    box-shadow: none;
+    border: 2mm ridge;
+    padding: 2px;
+    right: 2px;
+    top: 2px;
+    width: 22%;
+}
+
+#Equipable{
+    color: #3e8e41;
+    border-color: #3e8e41;
+}
+
+#Unequip{
+    color: #d42929;
+    border-color: #d42929;
+}
+
+#Unequipable{
+    color: gray;
+    border-color: gray;
+    opacity: 50%;
+}
+
+
+#Equipable:hover{
+    color: #317233;
+    border-color: #317233;
+}
+
+#Unequip:hover{
+    color: #8d1d1d;
+    border-color: #8d1d1d;
+}
+
+#Dismantle{
+    position: absolute;
+    background-image: none;
+    box-shadow: none;
+    border: 2mm ridge;
+    padding: 2px;
+    right: 2px;
+    bottom: 2px;
+    width: 22%;
+    color: #8d1d1d;
+    border-color: #8d1d1d;
+}
+
+#Dismantle:hover{
+    color: #3f0d0d;
+    border-color: #3f0d0d;
+}
+
+/*Skills Styles*/
+#Skills_Report {
+    top: 37%;
+    height: 56%;
+    padding: 3px;
+    font-size: larger;
+}
+
+#Skills_List {
+    left: 54%;
+    top: 5em;
+    height: 83%;
+    overflow: auto;
+    align-content: flex-start
+}
+
+.Skills_Blocks {
+    background-image: linear-gradient(to top left, rgb(131, 131, 131), rgb(94, 94, 94), rgb(100, 100, 100));
+    border: 0px solid rgb(0, 0, 0);
+    border-bottom-width: 1px;
+    position: relative;
+    box-shadow: none;
+    box-sizing: border-box;
+    width: 100%;
+    height: 70px;
+    display: grid;
+    padding: 1%;
+    color: antiquewhite;
+    text-shadow: 1px 1px 2px #000, 1px 1px 2px #000;
+}
+
+.Skills_Lvpro{
+    background-image: linear-gradient(to bottom right, rgb(2, 255, 2), rgb(182, 255, 1), rgb(109, 255, 0), rgb(255, 255, 2), rgb(109, 255, 0), rgb(182, 255, 1), rgb(2, 255, 2));
+    position: absolute;
+    box-shadow: none;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+}
+
+.Skills_Lvpro_Out{
+    z-index: 1;
+    background-image: none;
+    position: absolute;
+    box-shadow: inset 0px 0px 1px rgb(0 0 80);
+    top: 60%;
+    width: 100%;
+    height: 40%;
+    border: none;
+    display: flex;
+}
+
+.Skills_LVratio{
+    background: none;
+    z-index: 10;
+    width: 100%;
+    justify-content: center;
+    border: none;
+    display: flex;
+    box-shadow: none;
+    align-items: center;
+    color: antiquewhite;
+    text-shadow: 1px 1px 2px #000, 1px 1px 2px #000;
+}
+/*NPC Chat*/
+#NPC_chat_box{
+    visibility: hidden;
+    position: absolute;
+    left: 1%;
+    top: 5%;
+    width: 98%;
+    height: 90%;
+    background-image: none;
+    background-color: rgb(4, 43, 65);
+}
+
+#NPC_chat_eb{
+    top: 3%;
+    left: 97%;
+    border: 1px solid red;
+}
+
+.Priest_chat,
+.Salesman_chat,
+.Cook_chat{
+    visibility: hidden;
+    position: absolute;
+    background-image: none;
+}
+
+/*Priest Chat*/
+
+#PPortrait,
+#CPortrait,
+#SPortrait{
+    white-space: pre;
+    border: none;
+    box-shadow: none;
+    left: 17%;
+    top: 6%;
+    width: 91%;
+    height: 52%;
+    font-size: 3.8px;
+    color: #e9c28a;
+}
+#Priest_text_box{
+    box-shadow: none;
+    left: 23%;
+    top: 61%;
+    width: 54%;
+    height: 32%;
+    color: antiquewhite;
+    text-align: center;
+    font-size: x-large;
+    box-sizing:border-box;
+    padding: 1%;
+    vertical-align: middle;
+}
+#OP_box_1{
+    border: 9px ridge #9C6610;
+    background: #2D044F;
+    left: 2%;
+    top: 61%;
+    width: 19%;
+    height: 14%;
+    color: antiquewhite;
+    text-align: center;
+    font-size: x-large;
+    box-sizing:border-box;
+    padding: 1%;
+    vertical-align: middle;
+}
+#OP_box_2{
+    border: 9px ridge #9C6610;
+    background: #2D044F;
+    left: 78%;
+    top: 61%;
+    width: 19%;
+    height: 14%;
+    color: antiquewhite;
+    text-align: center;
+    font-size: x-large;
+    box-sizing:border-box;
+    padding: 1%;
+    vertical-align: middle;
+}
+#OP_box_3{
+    border: 9px ridge #9C6610;
+    background: #2D044F;
+    left: 2%;
+    top: 78%;
+    width: 19%;
+    height: 14%;
+    color: antiquewhite;
+    text-align: center;
+    font-size: x-large;
+    box-sizing:border-box;
+    padding: 1%;
+    vertical-align: middle;
+}
+#OP_box_4{
+    border: 9px ridge #9C6610;
+    background: #2D044F;
+    left: 78%;
+    top: 78%;
+    width: 19%;
+    height: 14%;
+    color: antiquewhite;
+    text-align: center;
+    font-size: x-large;
+    box-sizing:border-box;
+    padding: 1%;
+    vertical-align: middle;
+}
+/*Salesman Chat*/
+#Sales_sell{
+    background: #2D044F;
+    width: 38%;
+    height: 29%;
+    top: 65%;
+    left: 2%;
+    overflow: auto;
+}
+
+#Sales_sell_H{
+    color: antiquewhite;
+    text-align: center;
+    font-size: xxx-large;
+    background: #2D044F;
+    width: 38%;
+    height: 5%;
+    top: 60%;
+    left: 2%;
+}
+
+#Sales_buy{
+   background: #2D044F;
+    width: 38%;
+    height: 29%;
+    top: 65%;
+    left: 60%;
+    overflow: auto;
+}
+
+#Sales_buy_H{
+    color: antiquewhite;
+    text-align: center;
+    font-size: xxx-large;
+    background: #2D044F;
+    width: 38%;
+    height: 5%;
+    top: 60%;
+    left: 60%;
+}
+
+.sale_bar{
+    display: flex;
+    background-image: none;
+    background: rgb(4, 43, 65);
+    color: antiquewhite;
+    text-align: left;
+    align-items: center;
+    height: 10%;
+    width: 99%;
+    font-size: larger;
+}
+
+#Transaction{
+    background: #2D044F;
+    width: 20%;
+    height: 34%;
+    top: 60%;
+    left: 40%;
+    color: antiquewhite;
+    text-align: center;
+    font-size: x-large;
+}
+
+#transact_button{
+    color: antiquewhite;
+    font-size: x-large;
+    width: 65%;
+    height: 16%;
+    background-color: rgb(4, 43, 65);
+}
+
+#transact_button:hover{
+    color: antiquewhite;
+    font-size: x-large;
+    width: 65%;
+    height: 16%;
+    background-color: rgb(12, 111, 168);
+}
+
+
+/*Chef Chat*/
+
+#recipe_header{
+    color: antiquewhite;
+    text-align: center;
+    font-size: larger;
+    background: #2D044F;
+    width: 23%;
+    height: 3%;
+    top: 62%;
+    left: 2%;
+}
+
+#recipe_selection{
+    background: #2D044F;
+    width: 23%;
+    height: 29%;
+    top: 65%;
+    left: 2%;
+    overflow: auto;
+}
+
+#recipe_description{ 
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -2px -2px 5px #000, 2px -2px 5px #000, -2px 2px 5px #000, 2px 2px 5px #000;
+    display: flex;
+    color: antiquewhite;
+    background: #2D044F;
+    width: 31%;
+    height: 32%;
+    top: 62%;
+    left: 25%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: larger;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+#recipe_ingredients{
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000, -2px -2px 5px #000, 2px -2px 5px #000, -2px 2px 5px #000, 2px 2px 5px #000;
+    color: antiquewhite;
+    background: #2D044F;
+    width: 30%;
+    height: 32%;
+    top: 62%;
+    left: 58%;
+}
+
+#cook_button{
+    opacity: 0.5;
+    display: flex;
+    color: rgb(224, 211, 18);
+    font-size: x-large;
+    width: 10%;
+    height: 32%;
+    top: 62%;
+    left: 88%;
+    background: #2D044F;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    outline: 20px outset rgb(155, 1, 194);
+    outline-offset: -21px;
+    border-radius: 1%;
+}
+
+#cook_button:hover{
+    display: flex;
+    color: antiquewhite;
+    text-shadow: rgb(255 228 0) 1px 0 10px;
+    font-weight: bold;
+    width: 10%;
+    height: 32%;
+    top: 62%;
+    left: 88%;
+    background: #2D044F;
+    writing-mode: vertical-lr;
+    text-orientation: upright;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    outline: 30px inset rgb(155, 1, 194);
+    outline-offset: -31px;
+}
+
+.rec_bar{
+    display: flex;
+    background-image: none;
+    background: rgb(4, 43, 65);
+    color: antiquewhite;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: 10%;
+    width: 99%;
+    font-size: larger;
+}
+
 /*Technical Bar*/
 
 #technical_bar{
@@ -507,6 +1524,16 @@ div {
 #save{
     margin-left: 1px;
     background-color: rgb(4, 43, 65);
+    color: antiquewhite;
+    font-family: MS Gothic;
+    font-size: 16px;
+    height: 100%;
+    height: 1.5em;
+}
+
+#save:hover{
+    margin-left: 1px;
+    background-color: rgb(13, 121, 184);
     color: antiquewhite;
     font-family: MS Gothic;
     font-size: 16px;
@@ -548,4 +1575,28 @@ div {
     font-family: MS Gothic;
     height: 1.5em;
     font-size: 16px;
+}
+
+#delete_save:hover{
+    margin-left: auto;
+    margin-right: 3px;
+    background-color: rgb(13, 121, 184);
+    color: antiquewhite;
+    font-family: MS Gothic;
+    height: 1.5em;
+    font-size: 16px;
+}
+
+@keyframes funClick {
+    from {color: red; opacity: 100%;}
+    to {color: yellow; margin-right: 50px; margin-bottom: 100px; opacity: 0%;}
+}
+
+#funClick {
+    font-size: larger;
+    font-weight: bolder;
+    position: absolute;
+    animation-name: funClick;
+    animation-duration: 2s;
+    opacity: 0%;
 }
