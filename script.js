@@ -967,7 +967,7 @@ let ATT_active = false;
 let ATT_time = 0;
 /*^Effect Declaration^*/
 
-const version = "v 0.1.0";
+const version = "v 0.1.1";
 
 let x;
 let y;
@@ -3985,7 +3985,7 @@ function crafting_recipe(array1, array2, array3, array4, array5, array6, array7,
                 let type = GreatArray[i][1];
                 let dropdownSlot = `dropdown_${i + 1}`;
                 let dropdownbt = `dropdownbt_${i + 1}`;
-                document.getElementById(dropdownbt).innerHTML = "Choose an item";
+                document.getElementById(dropdownbt).innerHTML = `Choose an ${type.replace("_", " ")}`;
                 while (document.getElementById(dropdownSlot).lastChild) {
                     document.getElementById(dropdownSlot).removeChild(document.getElementById(dropdownSlot).lastChild);
                 }
