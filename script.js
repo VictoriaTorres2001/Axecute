@@ -967,7 +967,7 @@ let ATT_active = false;
 let ATT_time = 0;
 /*^Effect Declaration^*/
 
-const version = "v 0.1.1";
+const version = "v 0.1.2";
 
 let x;
 let y;
@@ -1524,7 +1524,7 @@ function crit(entity) {
 }
 
 function mbar(msg, css) {
-    if (msglogcount >= 19) {
+    if (msglogcount >= 15) {
         document.getElementById("msg_log").removeChild(document.getElementById("msg_log").firstElementChild);
         msglogcount--;
     }
@@ -3248,7 +3248,7 @@ async function doact(value) {
                 while (gathering == true) {
                     if (rustygateUL == false) {
                         rustygateprogress++;
-                        if (rustygateprogress >= 1000) {
+                        if (rustygateprogress >= 100000) {
                             rustygateUL = true;
                             mbar("You have found a key")
                         }
@@ -3507,7 +3507,7 @@ async function intro_message(message) {
             document.getElementById('intro_message_box').innerHTML = msg;
             break;
         case 5:
-            msg = "You look to the wall seing an empty bookshelf. Your father always said reading and books were the best way learn and store what you know.";
+            msg = "You look to the wall seeing an empty bookshelf. Your father always said reading and books were the best way to learn and store what you know.";
             document.getElementById('bookshelf').style.visibility = 'visible';
             document.getElementById('intro_message_box').innerHTML = msg;
             break;
@@ -3651,7 +3651,7 @@ function book_visible(value, state) {
             document.getElementById("Skills_Report").style.visibility = state;
             document.getElementById("Skills_List").style.visibility = state;
             document.getElementById("Skills_Header").innerHTML = "Skills";
-            document.getElementById("Skills_Description").innerHTML = "Each action, each strike, whether it's hammer or axe (Mostly axe) can teach you something. Repitition and practice of activites are the best way to learn them your papa always said. Here you can see that progress, what you have learned, how much more you can learn.";
+            document.getElementById("Skills_Description").innerHTML = "Each action, each strike, whether it's hammer or axe (Mostly axe) can teach you something. Repetition and practice of activites is the best way to learn them your papa always said. Here you can see that progress, what you have learned, how much more you can learn.";
             document.getElementById("Skills_Report").innerHTML = '';
             while (document.getElementById("Skills_List").lastChild) {
                 document.getElementById("Skills_List").removeChild(document.getElementById("Skills_List").lastChild);
@@ -3932,14 +3932,14 @@ function crafting(value) {
         case "Shovaxe":
             document.getElementById('Smithing_Header').innerHTML = "Shovaxe";
             document.getElementById('Smithing_Header').value = "Shovaxe";
-            document.getElementById('Smithing_Description').innerHTML = "A really sharp shovel, great of pericing the dirt!"
+            document.getElementById('Smithing_Description').innerHTML = "A really sharp shovel, great of piercing the dirt!"
             crafting_recipe([true, "Shovel_Head"], [true, "Axe_Head"], [true, "Binding"], [true, "Rod_Part"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
             smithingCheck();
             break;
         case "Faxing_Axe":
             document.getElementById('Smithing_Header').innerHTML = "Faxing Axe";
             document.getElementById('Smithing_Header').value = "Faxing_Axe";
-            document.getElementById('Smithing_Description').innerHTML = "An amagamation of axe heads all made to act as a multi-farming tool, your own invention!"
+            document.getElementById('Smithing_Description').innerHTML = "An amalgamation of axe heads all made to act as a multi-farming tool, your own invention!"
             crafting_recipe([true, "Shovel_Head"], [true, "Pick_Head"], [true, "Hammer_Head"], [true, "Axe_Head"], [true, "Binding"], [true, "Binding"], [true, "Rod_Part"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
             smithingCheck();
             break;
@@ -4558,22 +4558,22 @@ function Priest_Tree(state) {
             mbar("You are healed");
             break;
         case 5:
-            document.getElementById("Priest_text_box").innerHTML = "Our god is The Great Gaia, for it is all of creation, all of our world and universe. From it's power we can be one with our soulds, the Earth, and the universe. With the help of The Great Gaia, any mortal can find there way in its world.";
+            document.getElementById("Priest_text_box").innerHTML = "Our god is The Great Gaia, for it is all of creation, all of our world and universe. From it's power we can be one with our souls, the Earth, and the universe. With the help of The Great Gaia, any mortal can find there way in its world.";
             document.getElementById("OP_box_1").innerHTML = "What does 'The Great Gaia' look like?";
             document.getElementById("OP_box_2").innerHTML = "What is my way then?";
             document.getElementById("OP_box_3").innerHTML = "Why not call it GG? The Great Gaia is super wordy?";
-            document.getElementById("OP_box_4").innerHTML = "I had a diffrent question about the Church.";
+            document.getElementById("OP_box_4").innerHTML = "I had a different question about the Church.";
             document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(8); });
             document.getElementById("OP_box_2").addEventListener('click', () => { Priest_Tree(9); });
             document.getElementById("OP_box_3").addEventListener('click', () => { Priest_Tree(10); });
             document.getElementById("OP_box_4").addEventListener('click', () => { Priest_Tree(1); });
             break;
         case 6:
-            document.getElementById("Priest_text_box").innerHTML = "We spread the word of The Great Gaia. Helping it's people in any way we can. We do community work as well as help gather funds for local projects. We also take care of the graveyard and provide countless services to our congragation.";
+            document.getElementById("Priest_text_box").innerHTML = "We spread the word of The Great Gaia. Helping it's people in any way we can. We do community work as well as help gather funds for local projects. We also take care of the graveyard and provide countless services to our congregation.";
             document.getElementById("OP_box_1").innerHTML = "How are funds gathered, and for what?";
             document.getElementById("OP_box_2").innerHTML = "How do you take care of the graveyard?";
             document.getElementById("OP_box_3").innerHTML = "What services do you provide?";
-            document.getElementById("OP_box_4").innerHTML = "I had a diffrent question about the Church.";
+            document.getElementById("OP_box_4").innerHTML = "I had a different question about the Church.";
             document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(11); });
             document.getElementById("OP_box_2").addEventListener('click', () => { Priest_Tree(12); });
             document.getElementById("OP_box_3").addEventListener('click', () => { Priest_Tree(13); });
@@ -4584,15 +4584,15 @@ function Priest_Tree(state) {
             document.getElementById("OP_box_1").innerHTML = "How did you become a Pastor?";
             document.getElementById("OP_box_2").innerHTML = "Do you do or enjoy anything outside of the church?";
             document.getElementById("OP_box_3").innerHTML = "Vessel seems a bit duhumanizing don't you think?";
-            document.getElementById("OP_box_4").innerHTML = "I had a diffrent question about the Church.";
+            document.getElementById("OP_box_4").innerHTML = "I had a different question about the Church.";
             document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(14); });
             document.getElementById("OP_box_2").addEventListener('click', () => { Priest_Tree(15); });
             document.getElementById("OP_box_3").addEventListener('click', () => { Priest_Tree(16); });
             document.getElementById("OP_box_4").addEventListener('click', () => { Priest_Tree(1); });
             break;
         case 8:
-            document.getElementById("Priest_text_box").innerHTML = "The Great Gaia has no form, except for the universe itself. However we do have a symbol to represent The Great Gaia. The First Calamity. A world corrupted and broken existed long ago. The Great Gaia destroy that world, that universe, tearing it apart, and in the ashes, the drestructioin, and the death our world was born. Our universe created from ash. Now we must follow The Great Gaia so our world can prosper. Else it weill be destroyed once again, and others will have to take our place.";
-            document.getElementById("OP_box_1").innerHTML = "I had a diffrent question about Gaia.";
+            document.getElementById("Priest_text_box").innerHTML = "The Great Gaia has no form, except for the universe itself. However we do have a symbol to represent The Great Gaia. The First Calamity. A world corrupted and broken existed long ago. The Great Gaia destroyed that world, that universe, tearing it apart, and in the ashes, the destruction, and the death our world was born. Our universe created from ash. Now we must follow The Great Gaia so our world can prosper. Else it will be destroyed once again, and others will have to take our place.";
+            document.getElementById("OP_box_1").innerHTML = "I had a different question about Gaia.";
             document.getElementById("OP_box_2").innerHTML = "Okaaaaaaaayyyyyyy. Diffrent question.";
             document.getElementById("OP_box_3").innerHTML = "";
             document.getElementById("OP_box_4").innerHTML = "";
@@ -4601,8 +4601,8 @@ function Priest_Tree(state) {
             break;
         case 9:
             document.getElementById("Priest_text_box").innerHTML = "The Great Gaia does not determine your way. That is for you to decide. The Great Gaia helps us acheive our way.";
-            document.getElementById("OP_box_1").innerHTML = "I have a diffrent question about Gaia?";
-            document.getElementById("OP_box_2").innerHTML = "Great so no help. Anyways I had something diffrent to ask.";
+            document.getElementById("OP_box_1").innerHTML = "I have a different question about Gaia?";
+            document.getElementById("OP_box_2").innerHTML = "Great so no help. Anyways I had something different to ask.";
             document.getElementById("OP_box_3").innerHTML = "";
             document.getElementById("OP_box_4").innerHTML = "";
             document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(5); });
@@ -4610,25 +4610,25 @@ function Priest_Tree(state) {
             break;
         case 10:
             document.getElementById("Priest_text_box").innerHTML = "... Please do not abbreviate The Great Gaia's name. It is offensive to all it has done for us and all it does. The least us mortals can do is refer to it's whole name.";
-            document.getElementById("OP_box_1").innerHTML = "I have a diffrent question about Gaia?";
-            document.getElementById("OP_box_2").innerHTML = "It's just a- nevemind. I have a diffrent question.";
+            document.getElementById("OP_box_1").innerHTML = "I have a different question about Gaia?";
+            document.getElementById("OP_box_2").innerHTML = "It's just a- nevemind. I have a different question.";
             document.getElementById("OP_box_3").innerHTML = "";
             document.getElementById("OP_box_4").innerHTML = "";
             document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(5); });
             document.getElementById("OP_box_2").addEventListener('click', () => { Priest_Tree(1); });
             break;
         case 11:
-            document.getElementById("Priest_text_box").innerHTML = "Through the kind donations of our community and congragation. With it we buy supplies for buildings, we buy the ingredients to help our charitable chef make food for our community, as well as medicine to help our sick and poor.";
-            document.getElementById("OP_box_1").innerHTML = "I have a diffrent question about what the church does.";
-            document.getElementById("OP_box_2").innerHTML = "That's nice. I have a diffrent question.";
+            document.getElementById("Priest_text_box").innerHTML = "Through the kind donations of our community and congregation. With it we buy supplies for buildings, we buy the ingredients to help our charitable chef make food for our community, as well as medicine to help our sick and poor.";
+            document.getElementById("OP_box_1").innerHTML = "I have a different question about what the church does.";
+            document.getElementById("OP_box_2").innerHTML = "That's nice. I have a different question.";
             document.getElementById("OP_box_3").innerHTML = "";
             document.getElementById("OP_box_4").innerHTML = "";
             document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(6); });
             document.getElementById("OP_box_2").addEventListener('click', () => { Priest_Tree(1); });
             break;
         case 12:
-            document.getElementById("Priest_text_box").innerHTML = "The church waters the plants, digs new plots, and care for the plots that are there. The younger of our congragation wash down and care for the toombstones. There is a shed in the grave yard. If you wish to help I am sure we all would be thankful.";
-            document.getElementById("OP_box_1").innerHTML = "I have a diffrent question about what the church does.";
+            document.getElementById("Priest_text_box").innerHTML = "The church waters the plants, digs new plots, and care for the plots that are there. The younger of our congregation wash down and care for the tombstones. There is a shed in the grave yard. If you wish to help I am sure we all would be thankful.";
+            document.getElementById("OP_box_1").innerHTML = "I have a different question about what the church does.";
             document.getElementById("OP_box_2").innerHTML = "Oh! I might do that! Thanks, however right now I have other questions!";
             document.getElementById("OP_box_3").innerHTML = "";
             document.getElementById("OP_box_4").innerHTML = "";
@@ -4637,8 +4637,8 @@ function Priest_Tree(state) {
             break;
         case 13:
             document.getElementById("Priest_text_box").innerHTML = "We provide spiritual consoling, weekly service, as well as healing. If you are intrested in any of these you may speak with me or join us weekly.";
-            document.getElementById("OP_box_1").innerHTML = "I have a diffrent question about what the church does.";
-            document.getElementById("OP_box_2").innerHTML = "Healing? Now that is something I can use! I got a diffrent question real quick.";
+            document.getElementById("OP_box_1").innerHTML = "I have a different question about what the church does.";
+            document.getElementById("OP_box_2").innerHTML = "Healing? Now that is something I can use! I got a different question real quick.";
             document.getElementById("OP_box_3").innerHTML = "";
             document.getElementById("OP_box_4").innerHTML = "";
             document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(6); });
@@ -4646,8 +4646,8 @@ function Priest_Tree(state) {
             break;
         case 14:
             document.getElementById("Priest_text_box").innerHTML = "I took an intrest to The Great Gaia as a child, my parents would bring me to the church. Pastor Chanclor saw my intrest when I was a child. He would let me stay late, he would teach me... console me after I lost my parents. Gave me a path and support when I needed it. When he preached it felt like The Great Gaia was talking to me directly. I knew I had to be a pastor, to spread that message.";
-            document.getElementById("OP_box_1").innerHTML = "I have a diffrent question about you.";
-            document.getElementById("OP_box_2").innerHTML = "Wow... that's... um... I have a diffrent question.";
+            document.getElementById("OP_box_1").innerHTML = "I have a different question about you.";
+            document.getElementById("OP_box_2").innerHTML = "Wow... that's... um... I have a different question.";
             document.getElementById("OP_box_3").innerHTML = "";
             document.getElementById("OP_box_4").innerHTML = "";
             document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(7); });
@@ -4655,7 +4655,7 @@ function Priest_Tree(state) {
             break;
         case 15:
             document.getElementById("Priest_text_box").innerHTML = "Hmm outside of the church... not really I am almost always here or leading church activites. Though once a year I do take a rest, it's a three day fast and metitation. It allows me keep up every year without fail no matter my age.";
-            document.getElementById("OP_box_1").innerHTML = "I have a diffrent question about you.";
+            document.getElementById("OP_box_1").innerHTML = "I have a different question about you.";
             document.getElementById("OP_box_2").innerHTML = "I wish I could rest like that... another question.";
             document.getElementById("OP_box_3").innerHTML = "";
             document.getElementById("OP_box_4").innerHTML = "";
@@ -4664,8 +4664,8 @@ function Priest_Tree(state) {
             break;
         case 16:
             document.getElementById("Priest_text_box").innerHTML = "It is an accurate descriptor. I am meant to funnel the will of The Great Gaia through my words and actions. The Great Gaia needs mortal vessels to help spread it's will and message.";
-            document.getElementById("OP_box_1").innerHTML = "I have a diffrent question about you.";
-            document.getElementById("OP_box_2").innerHTML = "I guess.. okay.... diffrent question.";
+            document.getElementById("OP_box_1").innerHTML = "I have a different question about you.";
+            document.getElementById("OP_box_2").innerHTML = "I guess.. okay.... different question.";
             document.getElementById("OP_box_3").innerHTML = "";
             document.getElementById("OP_box_4").innerHTML = "";
             document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(7); });
@@ -4719,9 +4719,9 @@ function Priest_Tree(state) {
             document.getElementById("OP_box_4").addEventListener('click', () => { });
             break;
         case 20:
-            document.getElementById("Priest_text_box").innerHTML = "Your mother was a wonderful woman, she was... a lot like you, you have her eyes. She was an adventure, she married your father after she shopped at his blacksmith for years. It was adorable She was more proficent with swords, but after years with axes, she became fear by all tha opposed her. She helped this community grow. She was a hero.";
+            document.getElementById("Priest_text_box").innerHTML = "Your mother was a wonderful woman, she was... a lot like you, you have her eyes. She was an adventurer, she married your father after she shopped at his blacksmith for years. It was adorable She was more proficient with swords, but after years with axes, she became feared by all tha opposed her. She helped this community grow. She was a hero.";
             document.getElementById("OP_box_1").innerHTML = "Wow, she sounds amazing I have more questions about her.";
-            document.getElementById("OP_box_2").innerHTML = "I wish to talk about a diffrent topic...";
+            document.getElementById("OP_box_2").innerHTML = "I wish to talk about a different topic...";
             document.getElementById("OP_box_3").innerHTML = "";
             document.getElementById("OP_box_4").innerHTML = "";
             document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(3); });
@@ -4730,9 +4730,9 @@ function Priest_Tree(state) {
             document.getElementById("OP_box_4").addEventListener('click', () => { });
             break;
         case 21:
-            document.getElementById("Priest_text_box").innerHTML = "She was an adventurer. She would do quests, hunt monsters, and fuffil bounties. With those resrouces she would return here and help us build and grow... Do not let the devil hear this, but I fear she also protected us from that salesman... It never showed up till she passed. Becareful around that thing.";
+            document.getElementById("Priest_text_box").innerHTML = "She was an adventurer. She would do quests, hunt monsters, and fulfill bounties. With those resources she would return here and help us build and grow... Do not let the devil hear this, but I fear she also protected us from that salesman... It never showed up till she passed. Be careful around that thing.";
             document.getElementById("OP_box_1").innerHTML = "I guess I am growing up to be a lot like my mother, I have another question about her.";
-            document.getElementById("OP_box_2").innerHTML = "I wish to talk about a diffrent topic...";
+            document.getElementById("OP_box_2").innerHTML = "I wish to talk about a different topic...";
             document.getElementById("OP_box_3").innerHTML = "";
             document.getElementById("OP_box_4").innerHTML = "";
             document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(3); });
@@ -4742,9 +4742,9 @@ function Priest_Tree(state) {
             break;
         case 22:
             if (momprayUL == false) {
-                document.getElementById("Priest_text_box").innerHTML = "Ah yes. Paying respects to those who have passed away. We suggest you pray, for The Great Gaia will hear your prays, and the more you pray the more The Great Gaia will do to aid our loved ones in the after life.";
+                document.getElementById("Priest_text_box").innerHTML = "Ah yes. Paying respects to those who have passed away. We suggest you pray, for The Great Gaia will hear your prayers, and the more you pray the more The Great Gaia will do to aid our loved ones in the after life.";
                 document.getElementById("OP_box_1").innerHTML = "Thank you I will try that, I have another question about her.";
-                document.getElementById("OP_box_2").innerHTML = "I wish to talk about a diffrent topic...";
+                document.getElementById("OP_box_2").innerHTML = "I wish to talk about a different topic...";
                 document.getElementById("OP_box_3").innerHTML = "";
                 document.getElementById("OP_box_4").innerHTML = "";
                 document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(3); });
@@ -4756,7 +4756,7 @@ function Priest_Tree(state) {
             } else if (momprayUL == true) {
                 document.getElementById("Priest_text_box").innerHTML = "Our suggestion of praying is the best I can offer. I wish you luck.";
                 document.getElementById("OP_box_1").innerHTML = "Oh, right, I have another question about her.";
-                document.getElementById("OP_box_2").innerHTML = "I wish to talk about a diffrent topic...";
+                document.getElementById("OP_box_2").innerHTML = "I wish to talk about a different topic...";
                 document.getElementById("OP_box_3").innerHTML = "";
                 document.getElementById("OP_box_4").innerHTML = "";
                 document.getElementById("OP_box_1").addEventListener('click', () => { Priest_Tree(3); });
@@ -4970,7 +4970,7 @@ function cook(ingredients, output) {
 function itemusecheck(item, bar) {
     if (item.Category == "Useable") {
         let ibutt = document.createElement("button");
-        ibutt.innerHTML = "x";
+        ibutt.innerHTML = "&#9982;";
         ibutt.classList.add("usebutt");
         ibutt.id = item.Attribute;
         ibutt.addEventListener('click', () => {

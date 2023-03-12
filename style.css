@@ -5,11 +5,12 @@ html {
 body {
     background-color: rgb(50, 0, 100);
     font-family: MS Gothic;
+    height: 100vh;
 }
 
 header {
     width: 100%;
-    height: 4em;
+    height: 10%;
     border: 1px groove rgb(0, 0, 0);
     position: sticky;
     left: 0;
@@ -21,7 +22,7 @@ header {
 
 h1 {
     color: antiquewhite;
-    font-size: 2.5em;
+    font-size: xx-large;
 }
 
 div {
@@ -74,12 +75,10 @@ div {
 #intro_message_box{
     opacity: 0;
     transition:5s;
-    top: 50%;
-    left: 50%;
-    width: 550px;
-    height: 550px;
-    margin-left: -350px; 
-    margin-top: -350px; 
+    top: 10%;
+    left: 15%;
+    width: 60%;
+    height: 50%;
     position: absolute;
     background-color: #000;
     border: 10px double antiquewhite;
@@ -88,28 +87,31 @@ div {
     z-index: 0;
     color: antiquewhite;
     text-align: center;
-    padding: 2em;
+    padding: 5%;
     font-size: x-large;
 }
 
 #row_1{
+    height: 40%;
     background-image: none;
     border: none;
     box-shadow: none;
+    margin-top: 1%;
 }
  
 #row_2 {
+    height: 40%;
     background-image: none;
     border: none;
     box-shadow: none;
-    margin-top: 1em;
+    margin-top: 1%;
 }
 
 /*Center combat box*/
 
 #combat_box {
     width: 45%;
-    height: 25em;
+    height: 100%;
     margin-left: auto;
 }
 
@@ -169,7 +171,7 @@ div {
 .effects{
     visibility: hidden;
     width: 7%;
-    height: 7%;
+    height: 9%;
     margin: 1%;
 }
 
@@ -227,7 +229,7 @@ div {
   font-size: 16px;
   margin-left: auto;
   margin-right: 2.5%;
-  margin-top: 1.5em;
+  margin-top: 7.5%;
 }
 
 #Heal {
@@ -241,7 +243,7 @@ div {
     font-size: 16px;
     margin-right: auto;
     margin-left: 2.5%;
-    margin-top: 1.5em;
+    margin-top: 2.5%;
 }
 
 /*Message Log*/
@@ -252,7 +254,7 @@ div {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 5%;
+    height: 6%;
     background-image: none;
 }
 
@@ -273,7 +275,7 @@ div {
 }
 
 #the_log{
-    height: 25em;
+    height: 100%;
     width: 25%;
     flex-direction: column;
     margin-right: 2%;
@@ -284,7 +286,7 @@ div {
 
 #inv {
     width: 25%;
-    height: 25em;
+    height: 100%;
     flex-direction: column;
     margin-left: 2%;
     margin-right: 0.5%;
@@ -293,6 +295,7 @@ div {
 }
 
 #EXP {
+    height: 15%;
     background-image: none;
     box-shadow: none;
     border: none;
@@ -301,6 +304,7 @@ div {
 }
 
 #EXP_bar {
+    height: 20%;
     align-self: flex-start;
     background-image: none;
     box-shadow: none;
@@ -329,16 +333,19 @@ div {
     box-shadow: none;
     border: none;
     width: 100%;
-    height: 1.5em;
+    height: 50%;
     display: grid;
 }
 
-#stats {
-    height: 2em;
+#exp_stats {
+    height: 50%;
+    border-top: none;
+    box-shadow: none;
+    width: 100%;
 }
 
 .stat_butt {
-    height: 2em;
+    height: 100%;
     width: 25%;
     margin: auto;
     float: left;
@@ -362,9 +369,11 @@ div {
     box-shadow: none;
     border: none;
     width: 50%;
+    height: 100%;
 }
 
 #personal_inv {
+    height: 25%;
     box-shadow: none;
     border: none;
     width: 100%;
@@ -374,20 +383,22 @@ div {
     background-image: none;
     box-shadow: none;
     width: 100%;
-    height: 1.5em;
+    height: 20%;
     text-align: center;
     background-color: rgb(144, 125, 182);
+    height: 25%;
 }
 
 #backpack {
     width: 100%;
-    height: 100%;
+    height: 60%;
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
 }
 
 #inv_header {
+    height: 10%;
     width: 100%;
     box-shadow: none;
     border: none;
@@ -418,7 +429,7 @@ div {
 .bbar {
     align-items: center;
     width: 99%;
-    height: 1.5em;
+    height: 10%;
     border: 1px solid black;
     box-shadow: none;
     background-image: none;
@@ -431,6 +442,7 @@ div {
     margin-left: auto;
     margin-right: 1%;
     background-color: #007e71;
+    font-size: smaller;
 }
 
 .usebutt:hover{
@@ -441,8 +453,8 @@ div {
 .popup {
     display: none;
     position: absolute;
-    width: 35em;
-    padding: .5em;
+    width: 35%;
+    padding: .5%;
     background-image: none;
     background-color: rgb(41, 40, 40);
     color: rgb(172, 172, 172);
@@ -453,8 +465,6 @@ div {
 
 .action_grid{
     height: 100%;
-    padding-left: .5em;
-    padding-right: .5em;
     background-image: none;
     color: antiquewhite;
     border: none;
@@ -465,7 +475,7 @@ div {
 
 .abar {
     width: 100%;
-    height: 2.5em;
+    height: 13%;
     align-items: center;
     justify-content: center;
     background-color: rgb(10, 50, 100);
@@ -483,7 +493,7 @@ div {
 #action_box {
     position: relative;
     width: 25%;
-    height: 25em;
+    height: 100%;
     flex-direction: column;
     margin-left: 2%;
     margin-right: 0.5%;
@@ -495,7 +505,7 @@ div {
 
 #action_box_head{
     width: 100%;
-    height: 4em;
+    height: 20%;
     display: grid;
     grid-auto-columns: 25%;
     grid-auto-rows: 50%;
@@ -504,22 +514,26 @@ div {
 }
 
 #location_header{
+    padding-left: 7.5%;
     grid-column: 1;
     grid-row: 1;
 }
 
 #season_weather{
+    padding-right: 2%;
     grid-column: 2 / 5;
     grid-row: 1;
     justify-content: right;
 }
 
 #Location{
+    padding-left: 3%;
     grid-column: 1 / 3;
     grid-row: 2;
 }
 
 #time_date{
+    padding-right: 3%;
     grid-column: 3 / 5;
     grid-row: 2;
     justify-content: right;
@@ -566,7 +580,7 @@ div {
 
 #bookshelf {
     width: 70%;
-    height: 25em;
+    height: 100%;
     margin-right: 2%;
     margin-left: 0.5%;
     background-image: url(./Assets/Bookself.png);
@@ -579,8 +593,8 @@ div {
 .book {
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    width: 4.5em;
-    height: 45%;
+    width: 6%;
+    height: 44%;
     border: none;
     box-shadow: none;
     position: relative;
@@ -589,42 +603,42 @@ div {
 #MAP {
     background-image: url(./Assets/MAP.png);
     left: 3%; 
-    top: 3.7%;
+    top: 4%;
     visibility: hidden;
 }
 
 #SKILLS{
     background-image: url(./Assets/SKILLS.png);
     left: .5%; 
-    top: 3.7%;
+    top: 4%;
     visibility: hidden;
 }
 
 #CRAFTING{
     background-image: url(./Assets/CRAFTING.png);
     left: -2%; 
-    top: 3.7%;
+    top: 4%;
     visibility: hidden;
 }
 
 #SMITHING{
     background-image: url(./Assets/SMITHING.png);
     left: -4.5%; 
-    top: 3.7%;
+    top: 4%;
     visibility: hidden;
 }
 
 #PARTS{
     background-image: url(./Assets/PARTS.png);
     left: -7%; 
-    top: 3.7%;
+    top: 4%;
     visibility: hidden;
 }
 
 #EQUIPMENT{
     background-image: url(./Assets/EQUIPMENT.png);
     left: -9.5%; 
-    top: 3.7%;
+    top: 4%;
     visibility: hidden;
 }
 
@@ -648,8 +662,8 @@ div {
     box-shadow: none;
     background-image: none;
     background-color: none;
-    width: 1em;
-    height: 1em;
+    width: 2%;
+    height: 4%;
     visibility: hidden;
     color: red;
     top: 8%;
@@ -665,8 +679,8 @@ div {
     background-image: none;
     box-shadow: none;
     width: 4.0%;
-    height: 5em;
-    top: 1.1em;
+    height: 10%;
+    top: 1.1%;
     writing-mode: vertical-lr;
     transform: scale(-1, -1);
     font-weight: bolder;
@@ -689,8 +703,8 @@ div {
     box-shadow: none;
     background-image: none;
     width: 40%;
-    top: 11em;
-    left: 8%;
+    top: 22%;
+    left: 7.5%;
     height: 70%;
     visibility: hidden;
     display: grid;
@@ -704,8 +718,8 @@ div {
     background-image: none;
     border: none;
     box-shadow: none;
-    top: 1.5em;
-    left: 1.8em;
+    top: 4%;
+    left: 4%;
     font-weight: bolder;
     font-size: xx-large;
     margin-left: auto;
@@ -717,13 +731,13 @@ div {
 #Crafting_Description,
 #Smithing_Description,
 #Skills_Description {
-    width: 46%;
+    width: 45%;
     position: absolute;
     background-image: none;
     border: none;
     box-shadow: none;
-    top: 5em;
-    left: 4.5%;
+    top: 10%;
+    left: 5%;
     font-size: large;
     margin-left: auto;
     margin-right: auto;
@@ -733,111 +747,115 @@ div {
 /* Tabs */
 #Axe_Head{
     background-color: red;
+    top: 2%;
 }
 
 #Rod_Part{
     background-color: lightslategray;
-    top: 6.1em;
+    top: 12%;
 }
 
 #Binding{
     background-color: green;
-    top: 11.1em;
+    top: 22%;
 }
 
 #Handle{
     background-color: orange;
-    top: 16.1em;
+    top: 32%;
 }
 
 #Axe_Plate{
     background-color: yellow;
-    top: 21.1em;
+    top: 42%;
 }
 
 #Pick_Head{
     background-color: purple;
-    top: 26.1em;
+    top: 52%;
 }
 
 #Hammer_Head{
     background-color: plum;
-    top: 31.1em;
+    top: 62%;
 }
 
 #Shovel_Head{
     background-color: lightseagreen;
-    top: 36.1em;
+    top: 72%;
 }
 
 #Axe{
     background-color: red;
+    top: 2%;
 }
 
 #Head{
     background-color: lightslategray;
-    top: 6.1em;
+    top: 12%;
 }
 
 #Sheild{
     background-color: green;
-    top: 11.1em;
+    top: 22%;
 }
 
 #Chest{
     background-color: orange;
-    top: 16.1em;
+    top: 32%;
 }
 
 #Hands{
     background-color: yellow;
-    top: 21.1em;
+    top: 42%;
 }
 
 #Legs{
     background-color: purple;
-    top: 26.1em;
+    top: 52%;
 }
 
 #Feet{
     background-color: plum;
-    top: 31.1em;
+    top: 62%;
 }
 
 #Pickaxe{
     background-color: lightseagreen;
-    top: 36.1em;
+    top: 72%;
 }
 
 #Wood_Axe{
     background-color: red;
-    top: 41.1em;
-}
-
-#Axife{
-    background-color: lightslategray;
-    top: 46.1em;
+    top: 82%;
 }
 
 #Hammaxe,
 #Shovaxe,
-#Faxing_Axe{
+#Faxing_Axe,
+#Axife{
     transform: none;
     left: 96.3%;
 }
 
+#Axife{
+    background-color: lightslategray;
+    top: 2%;
+}
+
 #Hammaxe{
     background-color: green;
+    top: 12%;
 }
 
 #Shovaxe{
     background-color: orange;
-    top: 6.1em;
+    top: 22%;
 }
 
 #Faxing_Axe{
     background-color: yellow;
-    top: 11.1em;
+    top: 32%;
 }
 
 /* Dropdown style */
@@ -845,19 +863,19 @@ div {
     background-image: none;
     border: none;
     box-shadow: none;
-    width: 10em;
+    width: 10%;
     visibility: hidden;
 }
 
 .dropbtn {
     background-color: #4CAF50;
     color: white;
-    padding: 16px;
-    font-size: 16px;
+    padding: 7%;
+    font-size: large;
     border: none;
     cursor: pointer;
     box-shadow: none;
-    height: 3.55em;
+    height: 3.55%;
     width: 100%;
   }
   
@@ -1161,8 +1179,8 @@ div {
 
 #Skills_List {
     left: 54%;
-    top: 5em;
-    height: 83%;
+    top: 9%;
+    height: 85%;
     overflow: auto;
     align-content: flex-start
 }
@@ -1250,13 +1268,28 @@ div {
     white-space: pre;
     border: none;
     box-shadow: none;
-    left: 17%;
+    left: 20%;
     top: 6%;
-    width: 91%;
+    width: 60%;
     height: 52%;
     font-size: 3.8px;
     color: #e9c28a;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
+
+#PPortrait{
+    background-image: url(Assets/Priesttext.png);
+}
+
+#CPortrait{
+    background-image: url(Assets/Cheftext.png);
+}
+
+#SPortrait{
+    background-image: url(Assets/Salesmantext.png);
+}
+
 #Priest_text_box{
     box-shadow: none;
     left: 23%;
@@ -1279,8 +1312,8 @@ div {
     height: 14%;
     color: antiquewhite;
     text-align: center;
-    font-size: x-large;
-    box-sizing:border-box;
+    font-size: large;
+    box-sizing: border-box;
     padding: 1%;
     vertical-align: middle;
 }
@@ -1293,7 +1326,7 @@ div {
     height: 14%;
     color: antiquewhite;
     text-align: center;
-    font-size: x-large;
+    font-size: large;
     box-sizing:border-box;
     padding: 1%;
     vertical-align: middle;
@@ -1307,7 +1340,7 @@ div {
     height: 14%;
     color: antiquewhite;
     text-align: center;
-    font-size: x-large;
+    font-size: large;
     box-sizing:border-box;
     padding: 1%;
     vertical-align: middle;
@@ -1321,7 +1354,7 @@ div {
     height: 14%;
     color: antiquewhite;
     text-align: center;
-    font-size: x-large;
+    font-size: large;
     box-sizing:border-box;
     padding: 1%;
     vertical-align: middle;
@@ -1528,7 +1561,7 @@ div {
     font-family: MS Gothic;
     font-size: 16px;
     height: 100%;
-    height: 1.5em;
+    height: 1.5%;
 }
 
 #save:hover{
@@ -1538,7 +1571,7 @@ div {
     font-family: MS Gothic;
     font-size: 16px;
     height: 100%;
-    height: 1.5em;
+    height: 1.5%;
 }
 
 #version{
@@ -1546,13 +1579,11 @@ div {
     margin-right: auto;
     background-color: rgb(4, 43, 65);
     color: antiquewhite;
-    height: 1.5em;
-    width: 5%;
     background-image: none;
-    border-top: none;
-    border-bottom: none;
     box-shadow: none;
     text-align: center;
+    padding: 1px 6px;
+    border-width: 2px;
 }
 
 #auto_save_check{
@@ -1561,10 +1592,13 @@ div {
     background-color: rgb(4, 43, 65);
     color: antiquewhite;
     background-image: none;
-    height: 1.5em;
-    border-top: none;
-    border-bottom: none;
     box-shadow: none;
+    padding: 1px 6px;
+    border-width: 2px;
+}
+
+#auto_save{
+    margin: 0%;
 }
 
 #delete_save{
@@ -1573,7 +1607,7 @@ div {
     background-color: rgb(4, 43, 65);
     color: antiquewhite;
     font-family: MS Gothic;
-    height: 1.5em;
+    height: 1.5%;
     font-size: 16px;
 }
 
@@ -1583,7 +1617,7 @@ div {
     background-color: rgb(13, 121, 184);
     color: antiquewhite;
     font-family: MS Gothic;
-    height: 1.5em;
+    height: 1.5%;
     font-size: 16px;
 }
 
