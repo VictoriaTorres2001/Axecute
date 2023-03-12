@@ -177,37 +177,37 @@ div {
 
 #Sluggish_effect{
     visibility: inherit;
-    background-image: url(Assets/Slug.png);
+    background-image: url(Assets/effects/Slug.png);
     background-size: 100%;
 }
 
 #Healing_effect{
     visibility: inherit;
-    background-image: url(Assets/Healing.png);
+    background-image: url(Assets/effects/Healing.png);
     background-size: 100%;
 }
 
 #Defense_effect{
     visibility: inherit;
-    background-image: url(Assets/Defense.png);
+    background-image: url(Assets/effects/Defense.png);
     background-size: 100%;
 }
 
 #Poison_effect{
     visibility: inherit;
-    background-image: url(Assets/Poison.png);
+    background-image: url(Assets/effects/Poison.png);
     background-size: 100%;
 }
 
 #Euphoria_effect{
     visibility: inherit;
-    background-image: url(Assets/Euphoria.png);
+    background-image: url(Assets/effects/Euphoria.png);
     background-size: 100%;
 }
 
 #Attack_effect{
     visibility: inherit;
-    background-image: url(Assets/Attack.png);
+    background-image: url(Assets/effects/Attack.png);
     background-size: 100%;
 }
 /*Fight Buttons*/
@@ -583,7 +583,7 @@ div {
     height: 100%;
     margin-right: 2%;
     margin-left: 0.5%;
-    background-image: url(./Assets/Bookself.png);
+    background-image: url(./Assets/books/Bookself.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     justify-content: flex-start;
@@ -601,42 +601,42 @@ div {
 }
 
 #MAP {
-    background-image: url(./Assets/MAP.png);
+    background-image: url(./Assets/books/MAP.png);
     left: 3%; 
     top: 4%;
     visibility: hidden;
 }
 
 #SKILLS{
-    background-image: url(./Assets/SKILLS.png);
+    background-image: url(./Assets/books/SKILLS.png);
     left: .5%; 
     top: 4%;
     visibility: hidden;
 }
 
 #CRAFTING{
-    background-image: url(./Assets/CRAFTING.png);
+    background-image: url(./Assets/books/CRAFTING.png);
     left: -2%; 
     top: 4%;
     visibility: hidden;
 }
 
 #SMITHING{
-    background-image: url(./Assets/SMITHING.png);
+    background-image: url(./Assets/books/SMITHING.png);
     left: -4.5%; 
     top: 4%;
     visibility: hidden;
 }
 
 #PARTS{
-    background-image: url(./Assets/PARTS.png);
+    background-image: url(./Assets/books/PARTS.png);
     left: -7%; 
     top: 4%;
     visibility: hidden;
 }
 
 #EQUIPMENT{
-    background-image: url(./Assets/EQUIPMENT.png);
+    background-image: url(./Assets/books/EQUIPMENT.png);
     left: -9.5%; 
     top: 4%;
     visibility: hidden;
@@ -646,7 +646,7 @@ div {
     position: absolute;
     border: none;
     box-shadow: none;
-    background-image: url(./Assets/Pages.png);
+    background-image: url(./Assets/books/Pages.png);
     top: 5%;
     left: 5%;
     width: 90%;
@@ -881,6 +881,7 @@ div {
   
   /* The container <div> - needed to position the dropdown content */
   .dropdown {
+    top: 95%;
     position: absolute;
     display: inline-block;
     box-shadow: none;
@@ -1280,15 +1281,15 @@ div {
 }
 
 #PPortrait{
-    background-image: url(Assets/Priesttext.png);
+    background-image: url(Assets/NPCPortraits/Priesttext.png);
 }
 
 #CPortrait{
-    background-image: url(Assets/Cheftext.png);
+    background-image: url(Assets/NPCPortraits/Cheftext.png);
 }
 
 #SPortrait{
-    background-image: url(Assets/Salesmantext.png);
+    background-image: url(Assets/NPCPortraits/Salesmantext.png);
 }
 
 #Priest_text_box{
