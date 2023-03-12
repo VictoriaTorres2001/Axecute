@@ -210,7 +210,7 @@ let Item_table = [
 
     Gate_Key = {
         id: 16,
-        Name: "Gate_Key",
+        Name: "Gate Key",
         Description: "Freedom",
         Category: "Progress_Item",
         Type: ["Progress", "Unique"],
@@ -588,7 +588,7 @@ let SK_array = [
 
     SK_Gather = {
         name: "Gathering",
-        desc: "Collecting materials is a must for you, you need to collect food, collect materials, collect all you need to survive and grow. Every prick from a bush, every lucky find, all will help you find more faster, maybe even find things you never thought were there.",
+        desc: "Collecting materials is a must for you, you need to collect food, collect materials, collect all you need to survive and grow. Every prick from a bush, every lucky find, all teach you lessons in gathering. Maybe with all this knowledge you can even find things you never thought to look for.",
         LV: 0,
         EXP: 0,
         EXPneed: 500,
@@ -857,7 +857,7 @@ let Home_Living_Room = {
 let Village_center = {
     name: "Village Center",
     options: [["Go to Forest", "Forest"], ["Go Home", "Home"], ["Go to Church", "Chruch"], ["Go to Store", "Shop"], ["Go get some grub", "Cook"], ["Visit the Graveyard", "Graveyard"],],
-    description: "The center of your little village. People moving quickly to do their jobs to eat another day."
+    description: "The center of your little village. People moving quickly doing their jobs to eat another day."
 }
 
 let Church = {
@@ -869,7 +869,7 @@ let Church = {
 let Shop = {
     name: "Shop",
     options: [["Go Outside", "Village"], ["Speak with Salesman", "Salesman"]],
-    description: "You enter the large shop, it's shiny, clean, and the salesman sit with his unending smile. Somewthing is wrong with him."
+    description: "You enter the large shop, it's shiny, clean, and the salesman sits wearing his unending smile. Something is wrong with him."
 }
 
 let Cook = {
@@ -903,9 +903,9 @@ let Forest_Entrance = {
 }
 
 let Forest_Gathering = {
-    name: "Forest Foilage",
+    name: "Forest Foliage",
     options: [["Stop Gathering", "Forest-gather-easy-end"]],
-    description: "Foilage surrounds you as you gather, you hear noises"
+    description: "Foliage surrounds you as you gather, you hear noises"
 }
 
 let Forest_Deep = {
@@ -1184,7 +1184,7 @@ window.onload = function () {
     document.getElementById('auto_save').addEventListener('change', async function () {
         autosave();
     });
-    document.getElementById('delete_save').addEventListener('click', () => { localStorage.clear(); });
+    document.getElementById('delete_save').addEventListener('click', () => {delete_save_fun()});
 
     document.getElementById('version').innerHTML = version;
 
@@ -3114,6 +3114,7 @@ async function doact(value) {
                 addSKexp(SK_Axe, 20);
                 You.EXP += 20;
                 EXP();
+                mbar("You leave flowers for her");
             } else {
                 mbar("Not enough flowers");
             }
@@ -3218,11 +3219,16 @@ async function Gathering(loot) {
     gathering = true;
     while (gathering == true) {
         var items = loot.length;
+        var successG = 0;
         for (let i = 0; i <= items - 1; i++) {
             if (loot[i][2] >= Math.random() * 10000) {
                 loot[i][1] += SKAmount;
                 add_inventory(loot[i]);
+                successG++;
             }
+        } 
+        if (successG == 0){
+            mbar("You found nothing")
         }
         addSKexp(SK_Gather, 1);
         await sleep(1500);
@@ -3247,12 +3253,17 @@ async function intro_message(message) {
             return;
         case 1:
             msg = "You wake up from a deep sleep.<br><br> After working at your father's forge for so long you have learned to sleep through anything.<br><br> But this was hard to sleep through, yesterday you came home with some groceries your dad had you get.<br><br> You came home and he was gone, the place a mess, no note, nothing...<br><br> You cannot dwell on this for too long.<br><br> You have to survive, you have to get stronger, and you have to find him.<br><br> One small problem.<br><br> You only know how to make and use axes.<br><br> Guess you better get to work.";
+            document.getElementById('intro_message_box').style.top = '13%';
+            document.getElementById('intro_message_box').style.bottom = '18%';
             document.getElementById('intro_message_box').style.height = 'auto';
+            document.getElementById('intro_message_box').style.display = 'flex';
             document.getElementById('intro_message_box').innerHTML = msg;
             break;
         case 2:
             msg = "You get up check yourself and grab your bag.";
             document.getElementById('inv').style.visibility = 'visible';
+            document.getElementById('intro_message_box').style.top = '31%';
+            document.getElementById('intro_message_box').style.bottom = '49%';
             document.getElementById('intro_message_box').innerHTML = msg;
             break;
         case 3:
@@ -3462,6 +3473,8 @@ function book_visible(value, state) {
             document.getElementById('Hammer_Head').addEventListener("click", () => { crafting("Hammer_Head"); });
             document.getElementById('Shovel_Head').addEventListener("click", () => { crafting("Shovel_Head"); });
             document.getElementById("out_desc").innerHTML = "";
+            document.getElementById("stock_list").innerHTML = "";
+            document.getElementById("CS_error_list").innerHTML = "";
             document.getElementById("Crafting_Header").innerHTML = "Crafting";
             document.getElementById("Crafting_Description").innerHTML = "Select a crafting recipe to begin crafting!";
             if (state == "hidden") {
@@ -3493,6 +3506,8 @@ function book_visible(value, state) {
             document.getElementById('Shovaxe').addEventListener("click", () => { crafting("Shovaxe"); });
             document.getElementById('Faxing_Axe').addEventListener("click", () => { crafting("Faxing_Axe"); });
             document.getElementById("out_desc").innerHTML = "";
+            document.getElementById("stock_list").innerHTML = "";
+            document.getElementById("CS_error_list").innerHTML = "";
             document.getElementById("Smithing_Header").innerHTML = "Smithing";
             document.getElementById("Smithing_Description").innerHTML = "Select a smithing recipe to begin smithing!";
             if (state == "hidden") {
@@ -3560,6 +3575,7 @@ function crafting(value) {
             document.getElementById('Crafting_Header').value = "Axe_Head";
             document.getElementById('Crafting_Description').innerHTML = "The head for you next axe! Needs to be solid and sharp.";
             crafting_recipe([true, "solid"], [true, "solid"], [true, "solid"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Crafting");
+            stock_fill(value, "crafting");
             craftingCheck();
             break;
         case "Rod_Part":
@@ -3567,6 +3583,7 @@ function crafting(value) {
             document.getElementById('Crafting_Header').value = "Rod_Part";
             document.getElementById('Crafting_Description').innerHTML = "The long rod that give your equipment length and rigidness! Needs to be strong, solid, and smooth.";
             crafting_recipe([true, "solid"], [true, "solid"], [true, "solid"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Crafting");
+            stock_fill(value, "crafting");
             craftingCheck();
             break;
         case "Binding":
@@ -3574,6 +3591,7 @@ function crafting(value) {
             document.getElementById('Crafting_Header').value = "Binding";
             document.getElementById('Crafting_Description').innerHTML = "A good binding keeps your equipment together without it say goodbye to your axe head! Needs to be strong but flexible, maybe a little adhesive can help."
             crafting_recipe([true, "flexible"], [true, "flexible"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Crafting");
+            stock_fill(value, "crafting");
             craftingCheck();
             break;
         case "Handle":
@@ -3581,6 +3599,7 @@ function crafting(value) {
             document.getElementById('Crafting_Header').value = "Handle";
             document.getElementById('Crafting_Description').innerHTML = "The handle for your equipment, meant to act as a good place for you to grip, but it also covers sharp edges to protect yourself! Needs to be grippable and comfortable, adhesive could help with gripping."
             crafting_recipe([true, "flexible", "solid"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Crafting");
+            stock_fill(value, "crafting");
             craftingCheck();
             break;
         case "Axe_Plate":
@@ -3588,6 +3607,7 @@ function crafting(value) {
             document.getElementById('Crafting_Header').value = "Axe_Plate";
             document.getElementById('Crafting_Description').innerHTML = "A solid plate in the shape in an axe head, the only shape you can think of... Should be strong and solid, it will be probably taking hits."
             crafting_recipe([true, "solid"], [true, "solid"], [true, "solid"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Crafting");
+            stock_fill(value, "crafting");
             craftingCheck();
             break;
         case "Pick_Head":
@@ -3595,6 +3615,7 @@ function crafting(value) {
             document.getElementById('Crafting_Header').value = "Pick_Head";
             document.getElementById('Crafting_Description').innerHTML = "The head for a pick, it kinda looks like a half of a really thin axe head. Strong with a sharp tip should do."
             crafting_recipe([true, "solid"], [true, "solid"], [true, "solid"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Crafting");
+            stock_fill(value, "crafting");
             craftingCheck();
             break;
         case "Hammer_Head":
@@ -3602,6 +3623,7 @@ function crafting(value) {
             document.getElementById('Crafting_Header').value = "Hammer_Head";
             document.getElementById('Crafting_Description').innerHTML = "A big hammer head! Like a really flat axe head, also really dull, luckily you can just make something that looks like your father's old smithing hammer. Should be strong, heavy, and blunt."
             crafting_recipe([true, "solid"], [true, "solid"], [true, "solid"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Crafting");
+            stock_fill(value, "crafting");
             craftingCheck();
             break;
         case "Shovel_Head":
@@ -3609,6 +3631,7 @@ function crafting(value) {
             document.getElementById('Crafting_Header').value = "Shovel_Head";
             document.getElementById('Crafting_Description').innerHTML = "The head of a shovel, pretty easy it's mostly just half of an axe head you dented in the center then smoothed! Needs to be strong and sharp, the ground won't know what hit it!"
             crafting_recipe([true, "solid"], [true, "solid"], [true, "solid"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Crafting");
+            stock_fill(value, "crafting");
             craftingCheck();
             break;
         /*Smithing*/
@@ -3617,6 +3640,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Axe";
             document.getElementById('Smithing_Description').innerHTML = "A mighty axe! Double sided and sharp, ready to mow down your enemies. The only weapon you need!"
             crafting_recipe([true, "Axe_Head"], [true, "Axe_Head"], [true, "Binding"], [true, "Rod_Part"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
         case "Head":
@@ -3624,6 +3648,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Head";
             document.getElementById('Smithing_Description').innerHTML = "Is it a helmet? A hat? A cap? You are not sure but it goes on your head and protects it."
             crafting_recipe([true, "Axe_Plate"], [true, "Axe_Plate"], [true, "Binding"], [true, "Binding"], [true, "Handle"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
         case "Sheild":
@@ -3631,6 +3656,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Sheild";
             document.getElementById('Smithing_Description').innerHTML = "Looks like the head of your axe, but far bigger, and with a handle! It protects you from blows, you hope..."
             crafting_recipe([true, "Axe_Plate"], [true, "Binding"], [true, "Handle"], [true, "Handle"], [true, "Handle"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
         case "Chest":
@@ -3638,6 +3664,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Chest";
             document.getElementById('Smithing_Description').innerHTML = "Your chest piece! It fits, mostly, you can never get any chest pieces to fit around your chest right, but at least you can make it big enough so it doesn't hurt!"
             crafting_recipe([true, "Axe_Plate"], [true, "Axe_Plate"], [true, "Axe_Plate"], [true, "Binding"], [true, "Binding"], [true, "Binding"], [true, "Binding"], [true, "Binding"], [true, "Binding"], [true, "Rod_Part"], [true, "Rod_Part"], [true, "Rod_Part"], [true, "Rod_Part"], [true, "Rod_Part"], [true, "Handle"], [true, "Handle"], [true, "Handle"], [true, "Handle"], [true, "Handle"], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
         case "Hands":
@@ -3645,6 +3672,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Hands";
             document.getElementById('Smithing_Description').innerHTML = "Part gauntlets, part gloves these puppies will protect your hands and make sure you keep a grip on your weapon and tools!"
             crafting_recipe([true, "Axe_Plate"], [true, "Axe_Plate"], [true, "Binding"], [true, "Binding"], [true, "Binding"], [true, "Binding"], [true, "Handle"], [true, "Handle"], [true, "Handle"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
         case "Legs":
@@ -3652,6 +3680,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Legs";
             document.getElementById('Smithing_Description').innerHTML = "Long and protective, some solid leggings to keep your legs intact!"
             crafting_recipe([true, "Axe_Plate"], [true, "Axe_Plate"], [true, "Axe_Plate"], [true, "Binding"], [true, "Binding"], [true, "Binding"], [true, "Binding"], [true, "Binding"], [true, "Binding"], [true, "Rod_Part"], [true, "Rod_Part"], [true, "Handle"], [true, "Handle"], [true, "Handle"], [true, "Handle"], [true, "Handle"], [false], [false], [false], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
         case "Feet":
@@ -3659,6 +3688,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Feet";
             document.getElementById('Smithing_Description').innerHTML = "Some solid boots to cover your feet and keep them warm!"
             crafting_recipe([true, "Axe_Plate"], [true, "Axe_Plate"], [true, "Binding"], [true, "Binding"], [true, "Handle"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
         case "Pickaxe":
@@ -3666,6 +3696,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Pickaxe";
             document.getElementById('Smithing_Description').innerHTML = "A weapon to use against the earth! Rocks will fear you with a solid pickaxe!"
             crafting_recipe([true, "Pick_Head"], [true, "Axe_Head"], [true, "Binding"], [true, "Rod_Part"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
         case "Wood_Axe":
@@ -3673,6 +3704,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Wood_Axe";
             document.getElementById('Smithing_Description').innerHTML = "An axe! Made to take down trees! One axe head that is sharp, with some good percision you might have more tree then saw dust when you are done!"
             crafting_recipe([true, "Axe_Head"], [true, "Binding"], [true, "Rod_Part"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
         case "Axife":
@@ -3680,6 +3712,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Axife";
             document.getElementById('Smithing_Description').innerHTML = "It's a knife! But honestly it's just a stretched out axe head wrapped to a stick. Works as a knife though!"
             crafting_recipe([true, "Axe_Head"], [true, "Binding"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
         case "Hammaxe":
@@ -3687,6 +3720,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Hammaxe";
             document.getElementById('Smithing_Description').innerHTML = "A hammer that is also mostly an axe, has good weight and can be used for crushing or just putting a lot of force into something."
             crafting_recipe([true, "Hammer_Head"], [true, "Axe_Head"], [true, "Binding"], [true, "Rod_Part"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
         case "Shovaxe":
@@ -3694,6 +3728,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Shovaxe";
             document.getElementById('Smithing_Description').innerHTML = "A really sharp shovel, great of piercing the dirt!"
             crafting_recipe([true, "Shovel_Head"], [true, "Axe_Head"], [true, "Binding"], [true, "Rod_Part"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
         case "Faxing_Axe":
@@ -3701,6 +3736,7 @@ function crafting(value) {
             document.getElementById('Smithing_Header').value = "Faxing_Axe";
             document.getElementById('Smithing_Description').innerHTML = "An amalgamation of axe heads all made to act as a multi-farming tool, your own invention!"
             crafting_recipe([true, "Shovel_Head"], [true, "Pick_Head"], [true, "Hammer_Head"], [true, "Axe_Head"], [true, "Binding"], [true, "Binding"], [true, "Rod_Part"], [true, "Handle"], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], [false], "Smithing");
+            stock_fill(value, "smithing");
             smithingCheck();
             break;
     }
@@ -3745,7 +3781,7 @@ function crafting_recipe(array1, array2, array3, array4, array5, array6, array7,
                 let type = GreatArray[i][1];
                 let dropdownSlot = `dropdown_${i + 1}`;
                 let dropdownbt = `dropdownbt_${i + 1}`;
-                document.getElementById(dropdownbt).innerHTML = `Choose an ${type.replace("_", " ")}`;
+                document.getElementById(dropdownbt).innerHTML = `Choose ${type.replace("_", " ")}`;
                 while (document.getElementById(dropdownSlot).lastChild) {
                     document.getElementById(dropdownSlot).removeChild(document.getElementById(dropdownSlot).lastChild);
                 }
@@ -3787,6 +3823,22 @@ function craftingCheck() {
         document.getElementById("craftbt").disabled = false;
     } else {
         document.getElementById("craftbt").disabled = true;
+    }
+
+    document.getElementById("CS_error_list").innerHTML = '';
+    for (i = 0; i < craftslotsfill.length; i++){
+        if (Item_table[Item_table.indexOf(Item_table.find(n => n.Name === craftslotsfill[i][0]))].Amount < craftslotsfill[i][1]){
+            var err = document.createElement("p");
+            err.classList.add("err_lg")
+                err.innerHTML = `You don't have enough ${craftslotsfill[i][0]}`
+                document.getElementById("CS_error_list").appendChild(err);
+        }
+        if (slotfill < trueslot){
+            var err = document.createElement("p");
+            err.classList.add("err_lg")
+                err.innerHTML = `You need ${trueslot - slotfill} more items`
+                document.getElementById("CS_error_list").appendChild(err);
+        }
     }
 
     let msg = `With your current items you can craft an item with a quality between ${qualitymin.toFixed(2)} - ${qualitymax.toFixed(2)} <br />
@@ -3932,6 +3984,34 @@ function smithingCheck() {
     } else {
         document.getElementById("smithbt").disabled = true;
     }
+    document.getElementById("CS_error_list").innerHTML = '';
+    for (i = 0; i < craftslotsfill.length; i++){
+        var valuearray = [];
+        for (i = 0; i < trueslot; i++){
+            if (valuearray.findIndex(element => element[0] == document.getElementsByClassName("dropbtn")[i].value) != -1 && document.getElementsByClassName("dropbtn")[i].value != 'null'){
+                valuearray[i-1][1]++;
+            } else {
+            valuearray.push([document.getElementsByClassName("dropbtn")[i].value, 1])
+            }
+        }
+        for (i = 0; i < valuearray.length; i++){
+        if (valuearray[i][1] > 1){
+            var err = document.createElement("p");
+            err.classList.add("err_lg")
+                err.innerHTML = `${valuearray[i][0]} cannot be used for multiple slots.`
+                document.getElementById("CS_error_list").appendChild(err);
+        }
+    }
+    for (i = 0; i < trueslot; i++){
+        if (document.getElementsByClassName("dropbtn")[i].value == 'null'){
+            var err = document.createElement("p");
+            err.classList.add("err_lg")
+                err.innerHTML = `Slot ${i + 1} is empty.`
+                document.getElementById("CS_error_list").appendChild(err);
+        }
+    }
+    }
+
 
     let msg = `With your current items you can craft an item with a quality between ${qualitymin.toFixed(2)} - ${qualitymax.toFixed(2)} <br />
     <br />
@@ -5030,7 +5110,7 @@ function storefill() {
             amo_sel.style.margin = '0 0 0 1%';
             amo_sel.wvalue = worth;
             amo_sel.itemT = cur_item.Name;
-            nam_p.innerHTML = `&nbsp; ${cur_item.Name}`;
+            nam_p.innerHTML = `&nbsp; ${cur_item.Name} x ${cur_item.Amount}`;
             bar.classList.add("sale_bar");
             document.getElementById("Sales_sell").appendChild(bar);
             bar.appendChild(nam_p);
@@ -5084,7 +5164,7 @@ function storefill() {
             amo_sel.style.margin = '0 0 0 1%';
             amo_sel.wvalue = worth;
             amo_sel.itemT = cur_item[0].Name;
-            nam_p.innerHTML = `&nbsp; ${cur_item[0].Name}`;
+            nam_p.innerHTML = `&nbsp; ${cur_item[0].Name} x ${cur_item[2]}`;
             bar.classList.add("sale_bar");
             document.getElementById("Sales_buy").appendChild(bar);
             bar.appendChild(nam_p);
@@ -5157,4 +5237,36 @@ function amountestimate() {
 function capitalize(s)
 {
     return s[0].toUpperCase() + s.slice(1);
+}
+
+function stock_fill (value, type){
+    document.getElementById("stock_list").innerHTML = '';
+    if (type == "crafting"){
+    for (i = 0; i < PartArray.length; i++){
+        if(PartArray[i].Type == value){
+            var stockflit = document.createElement("p");
+            stockflit.classList.add("err_lg")
+            stockflit.innerHTML = `${PartArray[i].Name}`
+                document.getElementById("stock_list").appendChild(stockflit);
+        }
+    }
+}
+if (type == "smithing"){
+    for (i = 0; i < EquipArray.length; i++){
+        if(EquipArray[i].Type == value){
+            var stockflit = document.createElement("p");
+            stockflit.classList.add("err_lg")
+            stockflit.innerHTML = `${EquipArray[i].Name}`
+                document.getElementById("stock_list").appendChild(stockflit);
+        }
+    }
+}
+}
+
+function delete_save_fun () {
+    var deleteprompt = prompt("Please type 'delete' to confirm deleting your save");
+    if (deleteprompt == 'delete'){
+        localStorage.clear(); 
+        mbar('Save deleted!')
+    }
 }

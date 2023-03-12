@@ -1,3 +1,18 @@
+.clearfix::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+html, body {
+    min-height: 100%;
+    height: 100vh;
+    position: inherit;
+    overscroll-behavior: contain;
+}
+
 html {
     overflow: hidden;
 }
@@ -5,7 +20,6 @@ html {
 body {
     background-color: rgb(50, 0, 100);
     font-family: MS Gothic;
-    height: 100vh;
 }
 
 header {
@@ -59,7 +73,7 @@ div {
 
 #blackscreen{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     opacity:1;
     transition:5s;
     position: absolute;
@@ -73,22 +87,21 @@ div {
 }
 
 #intro_message_box{
-    opacity: 0;
-    transition:5s;
-    top: 10%;
+    display: none;
     left: 15%;
     width: 60%;
-    height: 50%;
     position: absolute;
     background-color: #000;
     border: 10px double antiquewhite;
-    box-shadow: none;
     background-image: none;
     z-index: 0;
     color: antiquewhite;
-    text-align: center;
-    padding: 5%;
     font-size: x-large;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
 #row_1{
@@ -216,6 +229,7 @@ div {
     background-image: none;
     box-shadow: none;
     border: none;
+    cursor: pointer;
 }
 
 #Battle_Start {
@@ -357,6 +371,7 @@ div {
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
+    cursor: pointer;
 }
 
 .stat_butt:hover {
@@ -443,6 +458,7 @@ div {
     margin-right: 1%;
     background-color: #007e71;
     font-size: smaller;
+    cursor: pointer;
 }
 
 .usebutt:hover{
@@ -484,6 +500,7 @@ div {
     border: 1px solid #000;
     font-family: MS Gothic;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .abar:hover {
@@ -598,6 +615,7 @@ div {
     border: none;
     box-shadow: none;
     position: relative;
+    cursor: pointer;
 }
 
 #MAP {
@@ -672,6 +690,7 @@ div {
     text-align: center;
     font-size: xx-large;
     z-index: 3;
+    cursor: pointer;
 }
 
 .tab {
@@ -899,6 +918,7 @@ div {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    cursor: pointer;
   }
   
   /* Links inside the dropdown */
@@ -995,13 +1015,66 @@ div {
 #out_desc{
     position: absolute;
     width: 93%;
-    height: 68%;
+    height: 20%;
     left: 4%;
     top: 20%;
     background-image: none;
     box-shadow: none;
     border: none;
     font-size: larger;
+}
+
+#stock_list{
+    position: absolute;
+    width: 93%;
+    height: 20%;
+    left: 4%;
+    top: 44%;
+    background-image: none;
+    box-shadow: none;
+    font-size: larger;
+}
+
+#CS_error_list{
+    position: absolute;
+    width: 93%;
+    height: 20%;
+    left: 4%;
+    top: 68%;
+    background-image: none;
+    box-shadow: none;
+    font-size: larger;
+    overflow: auto;
+}
+
+#stock_list_head{
+    position: absolute;
+    width: 9%;
+    height: 3%;
+    left: 4%;
+    top: 4%;
+    background-image: none;
+    box-shadow: none;
+    font-size: larger;
+}
+
+#CS_error_list_head{
+    position: absolute;
+    width: 11%;
+    height: 3%;
+    left: 4%;
+    top: 65%;
+    background-image: none;
+    box-shadow: none;
+    font-size: larger;
+    overflow: auto;
+}
+
+.err_lg{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 1%;
+    margin-inline-end: 0;
 }
 
 #craftbt {
@@ -1011,6 +1084,8 @@ div {
     left: 37%;
     top: 92%;
     visibility: hidden;
+    cursor: pointer;
+    overflow: auto;
 }
 
 #smithbt {
@@ -1020,6 +1095,7 @@ div {
     left: 37%;
     top: 92%;
     visibility: hidden;
+    cursor: pointer;
 }
 
 /*Parts/Equipment Pages*/
@@ -1252,6 +1328,7 @@ div {
     top: 3%;
     left: 97%;
     border: 1px solid red;
+    cursor: pointer;
 }
 
 .Priest_chat,
@@ -1318,6 +1395,7 @@ div {
     box-sizing: border-box;
     padding: 1%;
     vertical-align: middle;
+    cursor: pointer;
 }
 #OP_box_2{
     border: 9px ridge #9C6610;
@@ -1332,6 +1410,7 @@ div {
     box-sizing:border-box;
     padding: 1%;
     vertical-align: middle;
+    cursor: pointer;
 }
 #OP_box_3{
     border: 9px ridge #9C6610;
@@ -1346,6 +1425,7 @@ div {
     box-sizing:border-box;
     padding: 1%;
     vertical-align: middle;
+    cursor: pointer;
 }
 #OP_box_4{
     border: 9px ridge #9C6610;
@@ -1360,6 +1440,7 @@ div {
     box-sizing:border-box;
     padding: 1%;
     vertical-align: middle;
+    cursor: pointer;
 }
 /*Salesman Chat*/
 #Sales_sell{
@@ -1431,6 +1512,7 @@ div {
     width: 65%;
     height: 16%;
     background-color: rgb(4, 43, 65);
+    cursor: pointer;
 }
 
 #transact_button:hover{
@@ -1509,6 +1591,7 @@ div {
     outline: 20px outset rgb(155, 1, 194);
     outline-offset: -21px;
     border-radius: 1%;
+    cursor: pointer;
 }
 
 #cook_button:hover{
@@ -1564,6 +1647,7 @@ div {
     font-size: 16px;
     height: 100%;
     height: 1.5%;
+    cursor: pointer;
 }
 
 #save:hover{
@@ -1586,6 +1670,7 @@ div {
     text-align: center;
     padding: 1px 6px;
     border-width: 2px;
+    cursor: default;
 }
 
 #auto_save_check{
@@ -1597,10 +1682,12 @@ div {
     box-shadow: none;
     padding: 1px 6px;
     border-width: 2px;
+    cursor: default;
 }
 
 #auto_save{
     margin: 0%;
+    cursor: pointer;
 }
 
 #delete_save{
@@ -1611,6 +1698,7 @@ div {
     font-family: MS Gothic;
     height: 1.5%;
     font-size: 16px;
+    cursor: pointer;
 }
 
 #delete_save:hover{
