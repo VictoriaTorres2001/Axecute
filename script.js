@@ -1354,13 +1354,13 @@ window.onload = function () {
         rustygateUL = JSON.parse(localStorage.getItem("RGUL"));
         slimecaveprogress = parseInt(localStorage.getItem("SCP"));
         slimecaveUL = JSON.parse(localStorage.getItem("SCUL"));
-        if (graveyardshedUL = true) {
+        if (graveyardshedUL == true) {
             graveyardshed();
         }
-        if (momprayUL = true) {
+        if (momprayUL == true) {
             mompray();
         }
-        if (slimecaveUL = true) {
+        if (slimecaveUL == true) {
             slimecave();
         }
 
