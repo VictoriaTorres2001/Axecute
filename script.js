@@ -212,8 +212,8 @@ let Item_table = [
         id: 16,
         Name: "Gate_Key",
         Description: "Freedom",
-        Category: "Story_Item",
-        Type: ["Story", "Unique"],
+        Category: "Progress_Item",
+        Type: ["Progress", "Unique"],
         Rarity: 99,
         Amount: 0,
         Have: false,
@@ -271,6 +271,19 @@ let Item_table = [
         Have: false,
         Quality: 20,
         Attribute: "Egg"
+    },
+
+    Rusty_key = {
+        id: 21,
+        Name: "Rusty Key",
+        Description: "It's falling apart",
+        Category: "Progress_Item",
+        Type: ["Progress", "Unique"],
+        Rarity: 3,
+        Amount: 0,
+        Have: false,
+        Quality: 0,
+        Attribute: "Unlock"
     }
 ]
 /*^Items^*/
@@ -885,7 +898,7 @@ let Shed = {
 
 let Forest_Entrance = {
     name: "Forest Entrance",
-    options: [["Leave Forest", "Village"], ["Forage for resources", "Forest-gather-easy"], ["A rusty gate", "Forest-key-check"]],
+    options: [["Leave Forest", "Village"], ["Forage for resources", "Forest-gather-easy"], [`A rusty gate`, "Forest-key-check"]],
     description: "The Entrance to the forest surrounding your village."
 }
 
@@ -967,7 +980,7 @@ let ATT_active = false;
 let ATT_time = 0;
 /*^Effect Declaration^*/
 
-const version = "v 0.1.2";
+const version = "v 0.1.3";
 
 let x;
 let y;
@@ -1335,12 +1348,12 @@ window.onload = function () {
 
         shopstock = JSON.parse(localStorage.getItem("shopstock"));
 
-        graveyardshedUL = localStorage.getItem("GYUL");
-        momprayUL = localStorage.getItem("MPUL");
+        graveyardshedUL = JSON.parse(localStorage.getItem("GYUL"));
+        momprayUL = JSON.parse(localStorage.getItem("MPUL"));
         rustygateprogress = parseInt(localStorage.getItem("RGP"));
-        rustygateUL = localStorage.getItem("RGUL");
+        rustygateUL = JSON.parse(localStorage.getItem("RGUL"));
         slimecaveprogress = parseInt(localStorage.getItem("SCP"));
-        slimecaveUL = localStorage.getItem("SCUL");
+        slimecaveUL = JSON.parse(localStorage.getItem("SCUL"));
         if (graveyardshedUL = true) {
             graveyardshed();
         }
@@ -3251,6 +3264,7 @@ async function doact(value) {
                         if (rustygateprogress >= 100000) {
                             rustygateUL = true;
                             mbar("You have found a key")
+                            add_inventory([Rusty_key, 1], "dir");
                         }
                     }
                     if (Math.random() * 100 > 99) {
