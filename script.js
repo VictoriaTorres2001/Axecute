@@ -980,7 +980,7 @@ let ATT_active = false;
 let ATT_time = 0;
 /*^Effect Declaration^*/
 
-const version = "v 0.1.3";
+const version = "v 0.1.4";
 
 let x;
 let y;
@@ -1037,261 +1037,7 @@ let Legs_Name = "none";
 let Feet_Name = "none";
 let PartArray = [];
 let EquipArray = [];
-let GreatNameArray = ['Aback',
-    'Abaft',
-    'Abandoned',
-    'Abashed',
-    'Aberrant',
-    'Abhorrent',
-    'Abiding',
-    'Abject',
-    'Ablaze',
-    'Able',
-    'Abnormal',
-    'Aboriginal',
-    'Abortive',
-    'Abounding',
-    'Abrasive',
-    'Abrupt',
-    'Absent',
-    'Absorbed',
-    'Absorbing',
-    'Abstracted',
-    'Absurd',
-    'Abundant',
-    'Abusive',
-    'Acceptable',
-    'Accessible',
-    'Accidental',
-    'Accurate',
-    'Acid',
-    'Acidic',
-    'Acoustic',
-    'Acrid',
-    'Adamant',
-    'Adaptable',
-    'Addicted',
-    'Adhesive',
-    'Adjoining',
-    'Adorable',
-    'Adventurous',
-    'Afraid',
-    'Aggressive',
-    'Agonizing',
-    'Agreeable',
-    'Ahead',
-    'Ajar',
-    'Alert',
-    'Alike',
-    'Alive',
-    'Alleged',
-    'Alluring',
-    'Aloof',
-    'Amazing',
-    'Ambiguous',
-    'Ambitious',
-    'Amuck',
-    'Amused',
-    'Amusing',
-    'Ancient',
-    'Angry',
-    'Animated',
-    'Annoyed',
-    'Annoying',
-    'Anxious',
-    'Apathetic',
-    'Aquatic',
-    'Aromatic',
-    'Arrogant',
-    'Ashamed',
-    'Aspiring',
-    'Assorted',
-    'Astonishing',
-    'Attractive',
-    'Auspicious',
-    'Automatic',
-    'Available',
-    'Average',
-    'Aware',
-    'Awesome',
-    'Axiomatic',
-    'Bad',
-    'Barbarous',
-    'Bashful',
-    'Bawdy',
-    'Beautiful',
-    'Befitting',
-    'Belligerent',
-    'Beneficial',
-    'Bent',
-    'Berserk',
-    'Bewildered',
-    'Big',
-    'Billowy',
-    'Bite-sized',
-    'Bitter',
-    'Bizarre',
-    'Black',
-    'Black-and-white',
-    'Bloody',
-    'Blue',
-    'Blue-eyed',
-    'Blushing',
-    'Boiling',
-    'Boorish',
-    'Bored',
-    'Boring',
-    'Bouncy',
-    'Boundless',
-    'Brainy',
-    'Brash',
-    'Brave',
-    'Brawny',
-    'Breakable',
-    'Breezy',
-    'Brief',
-    'Bright',
-    'Broad',
-    'Broken',
-    'Brown',
-    'Bumpy',
-    'Burly',
-    'Bustling',
-    'Busy',
-    'Cagey',
-    'Calculating',
-    'Callous',
-    'Calm',
-    'Capable',
-    'Capricious',
-    'Careful',
-    'Careless',
-    'Caring',
-    'Cautious',
-    'Ceaseless',
-    'Certain',
-    'Changeable',
-    'Charming',
-    'Cheap',
-    'Cheerful',
-    'Chemical',
-    'Chief',
-    'Childlike',
-    'Chilly',
-    'Chivalrous',
-    'Chubby',
-    'Chunky',
-    'Clammy',
-    'Classy',
-    'Clean',
-    'Clear',
-    'Clever',
-    'Cloistered',
-    'Cloudy',
-    'Closed',
-    'Clumsy',
-    'Cluttered',
-    'Coherent',
-    'Cold',
-    'Colorful',
-    'Colossal',
-    'Combative',
-    'Comfortable',
-    'Common',
-    'Complete',
-    'Complex',
-    'Concerned',
-    'Condemned',
-    'Confused',
-    'Conscious',
-    'Cooing',
-    'Cool',
-    'Cooperative',
-    'Coordinated',
-    'Courageous',
-    'Cowardly',
-    'Crabby',
-    'Craven',
-    'Crazy',
-    'Creepy',
-    'Crooked',
-    'Crowded',
-    'Cruel',
-    'Cuddly',
-    'Cultured',
-    'Cumbersome',
-    'Curious',
-    'Curly',
-    'Curved',
-    'Curvy',
-    'Cut',
-    'Cute',
-    'Cynical',
-    'Daffy',
-    'Daily',
-    'Damaged',
-    'Damaging',
-    'Damp',
-    'Dangerous',
-    'Dapper',
-    'Dark',
-    'Dashing',
-    'Dazzling',
-    'Dead',
-    'Deadpan',
-    'Deafening',
-    'Dear',
-    'Debonair',
-    'Decisive',
-    'Decorous',
-    'Deep',
-    'Deeply',
-    'Defeated',
-    'Defective',
-    'Defiant',
-    'Delicate',
-    'Delicious',
-    'Delightful',
-    'Demonic',
-    'Delirious',
-    'Dependent',
-    'Depressed',
-    'Deranged',
-    'Descriptive',
-    'Deserted',
-    'Detailed',
-    'Determined',
-    'Devilish',
-    'Didactic',
-    'Different',
-    'Difficult',
-    'Diligent',
-    'Direful',
-    'Dirty',
-    'Disagreeable',
-    'Disastrous',
-    'Discreet',
-    'Disgusted',
-    'Disgusting',
-    'Disillusioned',
-    'Dispensable',
-    'Distinct',
-    'Disturbed',
-    'Divergent',
-    'Dizzy',
-    'Domineering',
-    'Doubtful',
-    'Drab',
-    'Draconian',
-    'Dramatic',
-    'Dreary',
-    'Drunk',
-    'Dry',
-    'Dull',
-    'Dusty',
-    'Dynamic',
-    'Dysfunctional'];
-
+let GreatNameArray = ["aback","abaft","abandoned","abashed","aberrant","abhorrent","abiding","abject","ablaze","able","abnormal","aboard","aboriginal","abortive","abounding","abrasive","abrupt","absent","absorbed","absorbing","abstracted","absurd","abundant","abusive","acceptable","accessible","accidental","accurate","acid","acidic","acoustic","acrid","actually","ad","hoc","adamant","adaptable","addicted","adhesive","adjoining","adorable","adventurous","afraid","aggressive","agonizing","agreeable","ahead","ajar","alcoholic","alert","alike","alive","alleged","alluring","aloof","amazing","ambiguous","ambitious","amuck","amused","amusing","ancient","angry","animated","annoyed","annoying","anxious","apathetic","aquatic","aromatic","arrogant","ashamed","aspiring","assorted","astonishing","attractive","auspicious","automatic","available","average","awake","aware","awesome","awful","axiomatic","bad","barbarous","bashful","bawdy","beautiful","befitting","belligerent","beneficial","bent","berserk","best","better","bewildered","big","billowy","bite-sized","bitter","bizarre","black","black-and-white","bloody","blue","blue-eyed","blushing","boiling","boorish","bored","boring","bouncy","boundless","brainy","brash","brave","brawny","breakable","breezy","brief","bright","bright","broad","broken","brown","bumpy","burly","bustling","busy","cagey","calculating","callous","calm","capable","capricious","careful","careless","caring","cautious","ceaseless","certain","changeable","charming","cheap","cheerful","chemical","chief","childlike","chilly","chivalrous","chubby","chunky","clammy","classy","clean","clear","clever","cloistered","cloudy","closed","clumsy","cluttered","coherent","cold","colorful","colossal","combative","comfortable","common","complete","complex","concerned","condemned","confused","conscious","cooing","cool","cooperative","coordinated","courageous","cowardly","crabby","craven","crazy","creepy","crooked","crowded","cruel","cuddly","cultured","cumbersome","curious","curly","curved","curvy","cut","cute","cute","cynical","daffy","daily","damaged","damaging","damp","dangerous","dapper","dark","dashing","dazzling","dead","deadpan","deafening","dear","debonair","decisive","decorous","deep","deeply","defeated","defective","defiant","delicate","delicious","delightful","demonic","delirious","dependent","depressed","deranged","descriptive","deserted","detailed","determined","devilish","didactic","different","difficult","diligent","direful","dirty","disagreeable","disastrous","discreet","disgusted","disgusting","disillusioned","dispensable","distinct","disturbed","divergent","dizzy","domineering","doubtful","drab","draconian","dramatic","dreary","drunk","dry","dull","dusty","dynamic","dysfunctional","eager","early","earsplitting","earthy","easy","eatable","economic","educated","efficacious","efficient","eight","elastic","elated","elderly","electric","elegant","elfin","elite","embarrassed","eminent","empty","enchanted","enchanting","encouraging","endurable","energetic","enormous","entertaining","enthusiastic","envious","equable","equal","erect","erratic","ethereal","evanescent","evasive","even excellent excited","exciting exclusive","exotic","expensive","extra-large extra-small exuberant","exultant","fabulous","faded","faint fair","faithful","fallacious","false familiar famous","fanatical","fancy","fantastic","far"," far-flung"," fascinated","fast","fat faulty","fearful fearless","feeble feigned","female fertile","festive","few fierce","filthy","fine","finicky","first"," five"," fixed"," flagrant","flaky","flashy","flat","flawless","flimsy"," flippant","flowery","fluffy","fluttering"," foamy","foolish","foregoing","forgetful","fortunate","four frail","fragile","frantic","free"," freezing"," frequent"," fresh"," fretful","friendly","frightened frightening full fumbling functional","funny","furry furtive","future futuristic","fuzzy ","gabby","gainful","gamy","gaping","garrulous","gaudy","general gentle","giant","giddy","gifted","gigantic","glamorous","gleaming","glib","glistening glorious","glossy","godly","good","goofy","gorgeous","graceful","grandiose","grateful gratis","gray greasy great","greedy","green grey grieving","groovy","grotesque","grouchy","grubby gruesome","grumpy","guarded","guiltless","gullible gusty","guttural H habitual","half","hallowed","halting","handsome","handsomely","handy","hanging","hapless","happy","hard","hard-to-find","harmonious","harsh","hateful","heady","healthy","heartbreaking","heavenly heavy hellish","helpful","helpless","hesitant","hideous high","highfalutin","high-pitched","hilarious","hissing","historical","holistic","hollow","homeless","homely","honorable","horrible","hospitable","hot huge","hulking","humdrum","humorous","hungry","hurried","hurt","hushed","husky","hypnotic","hysterical","icky","icy","idiotic","ignorant","ill","illegal","ill-fated","ill-informed","illustrious","imaginary","immense","imminent","impartial","imperfect","impolite","important","imported","impossible","incandescent","incompetent","inconclusive","industrious","incredible","inexpensive","infamous","innate","innocent","inquisitive","insidious","instinctive","intelligent","interesting","internal","invincible","irate","irritating","itchy","jaded","jagged","jazzy","jealous","jittery","jobless","jolly","joyous","judicious","juicy","jumbled","jumpy","juvenile","kaput","keen","kind","kindhearted","kindly","knotty","knowing","knowledgeable","known","labored","lackadaisical","lacking","lame","lamentable","languid","large","last","late","laughable","lavish","lazy","lean","learned","left","legal","lethal","level","lewd","light","like","likeable","limping","literate","little","lively","lively","living","lonely","long","longing","long-term","loose","lopsided","loud","loutish","lovely","loving","low","lowly","lucky","ludicrous","lumpy","lush","luxuriant","lying","lyrical","macabre","macho","maddening","madly","magenta","magical","magnificent","majestic","makeshift","male","malicious","mammoth","maniacal","many","marked","massive","married","marvelous","material","materialistic","mature","mean","measly","meaty","medical","meek","mellow","melodic","melted","merciful","mere","messy","mighty","military","milky","mindless","miniature","minor","miscreant","misty","mixed","moaning","modern","moldy","momentous","motionless","mountainous","muddled","mundane","murky","mushy","mute","mysterious","naive","nappy","narrow","nasty","natural","naughty","nauseating","near","neat","nebulous","necessary","needless","needy","neighborly","nervous","new","next","nice","nifty","nimble","nine","nippy","noiseless","noisy","nonchalant","nondescript","nonstop","normal","nostalgic","nosy","noxious","null","numberless","numerous","nutritious","nutty","oafish","obedient","obeisant","obese","obnoxious","obscene","obsequious","observant","obsolete","obtainable","oceanic","odd","offbeat","old","old-fashioned","omniscient","one","onerous","open","opposite","optimal","orange","ordinary","organic","ossified","outgoing","outrageous","outstanding","oval","overconfident","overjoyed","overrated","overt","overwrought","painful","painstaking","pale","paltry","panicky","panoramic","parallel","parched","parsimonious","past","pastoral","pathetic","peaceful","penitent","perfect","periodic","permissible","perpetual","petite","petite","phobic","physical","picayune","pink","piquant","placid","plain","plant","plastic","plausible","pleasant","plucky","pointless","poised","polite","political","poor","possessive","possible","powerful","precious","premium","present","pretty","previous","pricey","prickly","private","probable","productive","profuse","protective","proud","psychedelic","psychotic","public","puffy","pumped","puny","purple","purring","pushy","puzzled","puzzling","quack","quaint","quarrelsome","questionable","quick","quickest","quiet","quirky","quixotic","quizzical","rabid","racial","ragged","rainy","rambunctious","rampant","rapid","rare","raspy","ratty","ready","real","rebel","receptive","recondite","red","redundant","reflective","regular","relieved","remarkable","reminiscent","repulsive","resolute","resonant","responsible","rhetorical","rich","right","righteous","rightful","rigid","ripe","ritzy","roasted","robust","romantic","roomy","rotten","rough","round","royal","ruddy","rude","rural","rustic","ruthless","sable","sad","safe","salty","same","sassy","satisfying","savory","scandalous","scarce","scared","scary","scattered","scientific","scintillating","scrawny","screeching","second","second-hand","secret","secretive","sedate","seemly","selective","selfish","separate","serious","shaggy","shaky","shallow","sharp","shiny","shivering","shocking","short","shrill","shut","shy","sick","silent","silent","silky","silly","simple","simplistic","sincere","six","skillful","skinny","sleepy","slim","slimy","slippery","sloppy","slow","small","smart","smelly","smiling","smoggy","smooth","sneaky","snobbish","snotty","soft","soggy","solid","somber","sophisticated","sordid","sore","sore","sour","sparkling","special","spectacular","spicy","spiffy","spiky","spiritual","spiteful","splendid","spooky","spotless","spotted","spotty","spurious","squalid","square","squealing","squeamish","staking","stale","standing","statuesque","steadfast","steady","steep","stereotyped","sticky","stiff","stimulating","stingy","stormy","straight","strange","striped","strong","stupendous","stupid","sturdy","subdued","subsequent","substantial","successful","succinct","sudden","sulky","super","superb","superficial","supreme","swanky","sweet","sweltering","swift","symptomatic","synonymous","taboo","tacit","tacky","talented","tall","tame","tan","tangible","tangy","tart","tasteful","tasteless","tasty","tawdry","tearful","tedious","teeny","teeny-tiny","telling","temporary","ten","tender tense","tense","tenuous","terrible","terrific","tested","testy","thankful","therapeutic","thick","thin","thinkable","third","thirsty","thoughtful","thoughtless","threatening","three","thundering","tidy","tight","tightfisted","tiny","tired","tiresome","toothsome","torpid","tough","towering","tranquil","trashy","tremendous","tricky","trite","troubled","truculent","true","truthful","two","typical","ubiquitous","ugliest","ugly","ultra","unable","unaccountable","unadvised","unarmed","unbecoming","unbiased","uncovered","understood","undesirable","unequal","unequaled","uneven","unhealthy","uninterested","unique","unkempt","unknown","unnatural","unruly","unsightly","unsuitable","untidy","unused","unusual","unwieldy","unwritten","upbeat","uppity","upset","uptight","used","useful","useless","utopian","utter","uttermost","vacuous","vagabond","vague","valuable","various","vast","vengeful","venomous","verdant","versed","victorious","vigorous","violent","violet","vivacious","voiceless","volatile","voracious","vulgar","wacky","waggish","waiting","","wakeful","wandering","wanting","warlike","warm","wary","wasteful","watery","weak","wealthy","weary","well-groomed","well-made","well-off","well-to-do","wet","whimsical","whispering","white","whole","wholesale","wicked","wide","wide-eyed","wiggly","wild","willing","windy","wiry","wise","wistful","witty","woebegone","womanly","wonderful","wooden","woozy","workable","worried","worthless","wrathful","wretched","wrong","wry","xenophobic","yellow","yielding","young","youthful","yummy","zany","zealous","zesty","zippy","zonked"];
 
 
 window.onload = function () {
@@ -3363,7 +3109,7 @@ async function doact(value) {
             fillrecipies();
             break;
         case "Flowers":
-            if (Flower.Amount >= 5) {
+            if (Item_table[Item_table.indexOf(Item_table.find(n => n.Name === "Flowers"))].Amount >= 5) {
                 remove_inventory(["Flowers", 5])
                 addSKexp(SK_Axe, 20);
                 You.EXP += 20;
@@ -4138,7 +3884,7 @@ function craftPart() {
     let ingredients = helpfularray[2];
 
     const newitem = new Object();
-    newitem.Name = `${GreatNameArray[Math.round(Math.random() * 253)]} ${document.getElementById('Crafting_Header').innerHTML}`
+    newitem.Name = `${capitalize(GreatNameArray[Math.round(Math.random() * (GreatNameArray.length - 1))])} ${capitalize(GreatNameArray[Math.round(Math.random() * (GreatNameArray.length - 1))])} ${document.getElementById('Crafting_Header').innerHTML}`
     newitem.Quality = Math.round(((Math.random() * (qualitymax - qualitymin)) + qualitymin) * 100) / 100
     newitem.Attribute = (attributeslong[Math.round(Math.random() * (attributeslong.length - 1))]).toString();
     newitem.Type = document.getElementById('Crafting_Header').value;
@@ -4201,7 +3947,7 @@ function craftEquip() {
     let ingredients = helpfularray[8];
 
     const newitem = new Object();
-    newitem.Name = `${GreatNameArray[Math.round(Math.random() * 255)]} ${document.getElementById('Smithing_Header').innerHTML}`
+    newitem.Name = `${capitalize(GreatNameArray[Math.round(Math.random() * (GreatNameArray.length - 1))])} ${document.getElementById('Smithing_Header').innerHTML}`
     newitem.Quality = Math.round(((Math.random() * (qualitymax - qualitymin)) + qualitymin) * 100) / 100
     newitem.Attribute = (attributeslong[Math.round(Math.random() * (attributeslong.length - 1))]).toString();
     newitem.Type = document.getElementById('Smithing_Header').value;
@@ -4801,8 +4547,8 @@ function donate(c) {
         case "Copper":
             let cdonation = prompt("How much would you like to donate?", "0");
             if (cdonation > 0 && cdonation <= purecoins) {
-                purecoins -= cdonation;
-                amountdonated += cdonation;
+                purecoins -= parseInt(cdonation);
+                amountdonated += parseInt(cdonation);
                 document.getElementById("Priest_text_box").innerHTML = `Thank you for donating ${cdonation} copper.`;
                 document.getElementById("OP_box_1").innerHTML = "You're welcome.";
                 document.getElementById("OP_box_2").innerHTML = "I would like to donate more.";
@@ -4839,8 +4585,8 @@ function donate(c) {
         case "Silver":
             let sdonation = prompt("How much would you like to donate?", "0");
             if (sdonation > 0 && sdonation * 100 <= purecoins) {
-                purecoins -= sdonation * 100;
-                amountdonated += sdonation * 100;
+                purecoins -= parseInt(sdonation) * 100;
+                amountdonated += parseInt(sdonation) * 100;
                 document.getElementById("Priest_text_box").innerHTML = `Thank you for donating ${sdonation} silver.`;
                 document.getElementById("OP_box_1").innerHTML = "You're welcome.";
                 document.getElementById("OP_box_2").innerHTML = "I would like to donate more.";
@@ -4877,8 +4623,8 @@ function donate(c) {
         case "Gold":
             let gdonation = prompt("How much would you like to donate?", "0");
             if (gdonation > 0 && gdonation * 10000 <= purecoins) {
-                purecoins -= gdonation * 10000;
-                amountdonated += gdonation * 10000;
+                purecoins -= parseInt(gdonation) * 10000;
+                amountdonated += parseInt(gdonation) * 10000;
                 document.getElementById("Priest_text_box").innerHTML = `Thank you for donating ${gdonation} gold.`;
                 document.getElementById("OP_box_1").innerHTML = "You're welcome.";
                 document.getElementById("OP_box_2").innerHTML = "I would like to donate more.";
@@ -5358,12 +5104,12 @@ function amountestimate() {
     for (i = 0; i < document.getElementById("Sales_sell").children.length; i++) {
         let curchid = document.getElementById("Sales_sell").children[i].lastChild;
         if (curchid.value > curchid.max) { curchid.value = curchid.max }
-        saleamount += (curchid.value * curchid.wvalue);
+        saleamount += parseInt(curchid.value * curchid.wvalue);
     }
     for (i = 0; i < document.getElementById("Sales_buy").children.length; i++) {
         let curchid = document.getElementById("Sales_buy").children[i].lastChild;
         if (curchid.value > curchid.max) { curchid.value = curchid.max }
-        saleamount -= (curchid.value * curchid.wvalue);
+        saleamount -= parseInt(curchid.value * curchid.wvalue);
     }
     if (saleamount > 0) {
         who = "Salesman owes"
@@ -5374,7 +5120,7 @@ function amountestimate() {
     }
     saleamount = saleamount.toString().padStart(7, '0');
     document.getElementById("transact_amount").innerHTML = `${who}:<br> <span style="color:#E5E1E6">&#9679</span>${saleamount.slice(0, -6).replace("-", "").padStart(2, '0')}<br> <span style="color:gold">&#9679</span>${saleamount.slice(-6, -4).replace("-", "0")}<br> <span style="color:silver">&#9679</span>${saleamount.slice(-4, -2).replace("-", "0")}<br> <span style="color:#B77729">&#9679</span>${saleamount.slice(-2).replace("-", "0")}`;
-    if (purecoins > (saleamount.replace(/^[0]+/g, "") * -1)) {
+    if (purecoins >= (saleamount.replace(/^[0]+/g, "") * -1)) {
         elementReplace("transact_button");
         document.getElementById("transact_button").style.opacity = 1;
         document.getElementById("transact_button").addEventListener("click", () => {
@@ -5406,4 +5152,9 @@ function amountestimate() {
         elementReplace("transact_button");
         document.getElementById("transact_button").style.opacity = 0.5;
     }
+}
+
+function capitalize(s)
+{
+    return s[0].toUpperCase() + s.slice(1);
 }
