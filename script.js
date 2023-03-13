@@ -980,7 +980,7 @@ let ATT_active = false;
 let ATT_time = 0;
 /*^Effect Declaration^*/
 
-const version = "v 0.1.4";
+const version = "v 0.1.5";
 
 let x;
 let y;
